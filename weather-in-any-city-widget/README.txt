@@ -1,7 +1,7 @@
 ﻿=== Weather Widget Pro ===
 Website: https://eltiempoen.com/
 Tags: weather, forecast, el tiempo, clima, tiempo
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.3
 Stable tag: 1.1.41
 License: GPLv2 or later
