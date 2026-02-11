@@ -1,7 +1,7 @@
 ﻿=== Weather Widget Pro ===
 Website: https://eltiempoen.com/
 Tags: weather, forecast, el tiempo, clima, tiempo
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 5.3
 Stable tag: 1.1.41
 License: GPLv2 or later
@@ -30,6 +30,26 @@ Create a widget, select your location over 200,000 available aroud the world, ch
 * All major browsers are supported.
 
 Weather Widget Pro is a service provided by [weatherin.org](https://weatherin.org/) and [eltiempoen.com](https://eltiempoen.com/)
+
+== INSTALLATION ==
+
+= Manual installation =
+* Download the zip file and extract the content
+* Upload the folder weather-in-any-city-widget to your WP plugin folder /wp-content/plugins/ directory
+* Go to Plugins > Plugins, and activate the plugin
+
+= Widget =
+
+* Go to Appearance > Widgets, and drag the widget to a sidebar
+* Configure your widget
+
+= Shortcode =
+
+* Go to Appearance > Widgets, and drag the widget to a sidebar
+* Configure your widget
+* Copy the shortcode generated at bottom
+* Remove widget
+* Paste shortcode wherever you want
 
 == Screenshots ==
 1. widget
