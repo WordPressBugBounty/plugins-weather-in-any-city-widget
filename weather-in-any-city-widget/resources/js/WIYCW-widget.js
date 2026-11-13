@@ -8,15 +8,19 @@
 			        var httpRequest = new XMLHttpRequest();
 			        httpRequest.onreadystatechange = function() {
 			            if (httpRequest.readyState === 4) {
-			                if (httpRequest.status === 200) {
-
-			                  if(httpRequest.responseText){
-			                    var data = JSON.parse(httpRequest.responseText);
-			                      callback(data);
-			                  }
-			                    
+			                // anything but a JSON object (an error page, an empty answer) is a failure: the caller tries its other source
+			                var data = null;
+			                if (httpRequest.status === 200 && httpRequest.responseText) {
+			                    try {
+			                        data = JSON.parse(httpRequest.responseText);
+			                    } catch (e) {
+			                        data = null;
+			                    }
+			                }
+			                if (data && typeof data === 'object') {
+			                    callback(data);
 			                } else {
-			                  error();
+			                    error();
 			                }
 			            }
 			        };
@@ -383,14 +387,14 @@
 
 
 						}, function(){
-							console.log("Weather widget error")
+							// no answer, an HTTP error or something that is not JSON: the other source, like an error in the answer
+							error();
 						})
 					}
 
-					getWeatherData(widget.dataset.url+"?action="+widget.dataset.action+"&nonce="+widget.dataset.nonce+"&id="+widget.dataset.cityid, function(){
-						getWeatherData("https://eltiempoen.com:9090/api/widget?id="+widget.dataset.cityid+"&s="+encodeURIComponent(window.location.hostname)+"&v="+widget.dataset.version+"&c=false", function(){
-							console.log('Error getting direct call')
-						})
+					getWeatherData(widget.dataset.url+"?action="+widget.dataset.action+"&nonce="+widget.dataset.nonce+"&id="+encodeURIComponent(widget.dataset.cityid), function(){
+						// the weather comes only from the site: the visitor's browser never calls the service
+						console.log('Weather Widget Pro: no weather data from the site')
 					})
 
 

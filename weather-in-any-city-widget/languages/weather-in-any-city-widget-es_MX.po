@@ -200,9 +200,6 @@ msgid "14 days"
 msgstr "14 días"
 
 #: weather-in-any-city-widget.php:497
-msgid "15 days"
-msgstr "15 días"
-
 #: weather-in-any-city-widget.php:504
 msgid "Layout"
 msgstr "Disposición"
@@ -267,5 +264,212 @@ msgstr "Sombra"
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#~ msgid "Credits"
-#~ msgstr "Créditos"
+msgid "Feels like"
+msgstr "Sensación"
+
+msgid "Visibility"
+msgstr "Visibilidad"
+
+msgid "Sunrise"
+msgstr "Amanecer"
+
+msgid "Sunset"
+msgstr "Atardecer"
+
+msgid "Hourly forecast"
+msgstr "Próximas horas"
+
+msgid "Updated at %s"
+msgstr "Actualizado: %s"
+
+msgid "Weather data is temporarily unavailable."
+msgstr "Los datos del clima no están disponibles en este momento."
+
+msgid "Thunderstorm with rain"
+msgstr "Tormenta con lluvia"
+
+msgid "Thunderstorm"
+msgstr "Tormenta"
+
+msgid "Drizzle"
+msgstr "Llovizna"
+
+msgid "Light rain"
+msgstr "Lluvia débil"
+
+msgid "Rain"
+msgstr "Lluvia"
+
+msgid "Heavy rain"
+msgstr "Lluvia fuerte"
+
+msgid "Showers"
+msgstr "Chubascos"
+
+msgid "Sleet"
+msgstr "Aguanieve"
+
+msgid "Dust"
+msgstr "Polvo en suspensión"
+
+msgid "Freezing rain"
+msgstr "Lluvia helada"
+
+msgid "Light showers"
+msgstr "Chubascos débiles"
+
+msgid "Heavy showers"
+msgstr "Chubascos fuertes"
+
+msgid "Light snow"
+msgstr "Nevada débil"
+
+msgid "Snow"
+msgstr "Nieve"
+
+msgid "Heavy snow"
+msgstr "Nevada fuerte"
+
+msgid "Rain and snow"
+msgstr "Lluvia y nieve"
+
+msgid "Light snow showers"
+msgstr "Chubascos débiles de nieve"
+
+msgid "Snow showers"
+msgstr "Chubascos de nieve"
+
+msgid "Heavy snow showers"
+msgstr "Chubascos fuertes de nieve"
+
+msgid "Mist"
+msgstr "Neblina"
+
+msgid "Smoke"
+msgstr "Humo"
+
+msgid "Haze"
+msgstr "Bruma"
+
+msgid "Fog"
+msgstr "Niebla"
+
+msgid "Squalls"
+msgstr "Rachas fuertes de viento"
+
+msgid "Tornado"
+msgstr "Tornado"
+
+msgid "Clear sky"
+msgstr "Despejado"
+
+msgid "Mostly clear"
+msgstr "Algo nublado"
+
+msgid "Partly cloudy"
+msgstr "Parcialmente nublado"
+
+msgid "Mostly cloudy"
+msgstr "Mayormente nublado"
+
+msgid "Overcast"
+msgstr "Nublado"
+
+msgid "Design"
+msgstr "Diseño"
+
+msgid "Sky card (new)"
+msgstr "Tarjeta de cielo (nuevo)"
+
+msgid "Classic"
+msgstr "Clásico"
+
+msgid "The sky card changes its sky with the weather. These options only apply to it:"
+msgstr "El cielo de la tarjeta cambia según el clima. Estas opciones solo se aplican a ella:"
+
+msgid "Weather in words"
+msgstr "El clima en palabras"
+
+msgid "Let visitors switch between °C and °F"
+msgstr "Dejar que el visitante cambie entre °C y °F"
+
+msgid "Time of the last update"
+msgstr "Hora de la última actualización"
+
+msgid "Animated sky"
+msgstr "Cielo animado"
+
+msgid "Time format"
+msgstr "Formato de hora"
+
+msgid "24 hours"
+msgstr "24 horas"
+
+msgid "12 hours"
+msgstr "12 horas"
+
+msgid "Search for a city to show its weather."
+msgstr "Busca una ciudad para mostrar su clima."
+
+msgid "How to use"
+msgstr "Cómo se usa"
+
+msgid "add the weather with the block, the widget or a shortcode."
+msgstr "añade el clima con el bloque, el widget o un shortcode."
+
+msgid "Weather for more than 200,000 places, without an API key. There are three ways to add it:"
+msgstr "El clima de más de 200.000 lugares, sin clave de API. Hay tres formas de añadirlo:"
+
+msgid "Block"
+msgstr "Bloque"
+
+msgid "In the editor, add the “Weather Widget Pro” block, search for your city and choose what to show in the block sidebar."
+msgstr "En el editor, añade el bloque «Weather Widget Pro», busca tu ciudad y elige qué mostrar en la barra lateral del bloque."
+
+msgid "Widget"
+msgstr "Widget"
+
+msgid "Go to Appearance > Widgets (or the Customizer) and add “Weather Widget Pro” to a sidebar. If your theme has no widget areas, use the block or the shortcode."
+msgstr "En Apariencia › Widgets (o en el Personalizador), añade «Weather Widget Pro» a una barra lateral. Los temas sin zonas de widgets usan el bloque o el shortcode."
+
+msgid "Go to Widgets"
+msgstr "Ir a Widgets"
+
+msgid "Search for a city, choose a design, then copy the shortcode and paste it into any page, post or text widget."
+msgstr "Busca una ciudad, elige un diseño y copia el shortcode en cualquier página, entrada o widget de texto."
+
+msgid "Sky card"
+msgstr "Tarjeta de cielo"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Copied"
+msgstr "Copiado"
+
+msgid "Every widget option is also a shortcode attribute: the plugin page lists them all."
+msgstr "Cada opción del widget es también un atributo del shortcode: la página del plugin los enumera todos."
+
+msgid "The weather service is not available for this site."
+msgstr "El servicio del clima no está disponible para este sitio."
+
+msgid "The weather service has blocked this site. Contact us at weatherin.org/contact to restore access."
+msgstr "El servicio del clima ha bloqueado este sitio. Escríbenos desde eltiempoen.com/contacto para recuperarlo."
+
+msgid "Too many requests to the weather service. The widget will try again in a few minutes."
+msgstr "Demasiadas peticiones al servicio del clima. Se volverá a intentar en unos minutos."
+
+msgid "The city of this widget was not found. Choose it again in the widget settings."
+msgstr "No se ha encontrado la ciudad de este widget. Vuelve a elegirla en sus ajustes."
+
+msgid "This site could not reach the weather service (eltiempoen.com). Check that your server allows outgoing connections."
+msgstr "Este sitio no ha podido conectar con el servicio del clima (eltiempoen.com). Comprueba que tu servidor permite conexiones salientes."
+
+msgid "The weather service did not respond. The widget will try again in a few minutes."
+msgstr "El servicio del clima no ha respondido. Se volverá a intentar en unos minutos."
+
+msgid "This site did not respond to the request of the widget (admin-ajax.php)."
+msgstr "Este sitio no ha respondido a la petición del widget (admin-ajax.php)."
+
+msgid "(Only site editors can see this.)"
+msgstr "(Esto solo lo ven los editores del sitio.)"

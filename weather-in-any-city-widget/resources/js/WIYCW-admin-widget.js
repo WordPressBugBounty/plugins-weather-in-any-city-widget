@@ -15,12 +15,17 @@
 		              placeHolder: "",
 		              data: {
 		                src: async (query) => {
+		                  // the cities of the service, on the standard HTTPS port; without an answer, no suggestions
 		                  try {
-		                    const source = await fetch(`https://eltiempoen.com:9090/api/wpsearch/?q=${query}`);
+		                    const searchUrl = (window.WIYCW_admin && window.WIYCW_admin.searchUrl) || 'https://eltiempoen.com/api/weather/wpsearch';
+		                    const source = await fetch(searchUrl + '?q=' + encodeURIComponent(query));
+		                    if (!source.ok) {
+		                      return [];
+		                    }
 		                    const data = await source.json();
-		                    return data;
+		                    return Array.isArray(data) ? data : [];
 		                  } catch (error) {
-		                    return error;
+		                    return [];
 		                  }
 		                },
 
