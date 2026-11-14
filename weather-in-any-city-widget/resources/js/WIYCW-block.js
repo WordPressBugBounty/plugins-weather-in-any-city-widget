@@ -217,7 +217,8 @@
 				el(components.ColorPalette, {value: a.backgroundColor, clearable: false, onChange: function (value) { props.setAttributes({backgroundColor: value || '#ffffff'}); }})),
 			card ? null : el(components.BaseControl, {label: __('Border color', 'weather-in-any-city-widget'), id: 'wiycw-border'},
 				el(components.ColorPalette, {value: a.borderColor, clearable: false, onChange: function (value) { props.setAttributes({borderColor: value || '#ffffff'}); }})),
-			card ? null : toggle(props, 'shadow', __('Shadow', 'weather-in-any-city-widget'))
+			card ? null : toggle(props, 'shadow', __('Shadow', 'weather-in-any-city-widget')),
+			toggle(props, 'credit_link', __('Show the logo', 'weather-in-any-city-widget'))
 		);
 
 		var body = a.cityID

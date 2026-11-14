@@ -221,6 +221,7 @@ function WIYCW_generator_fields(){
 			array('attribute' => 'iconscolor', 'label' => __('UI icons color', 'weather-in-any-city-widget'), 'type' => 'select', 'start' => 'dark', 'only' => 'classic',
 				'options' => array('dark' => __('Dark', 'weather-in-any-city-widget'), 'light' => __('Light', 'weather-in-any-city-widget'))),
 			$check('shadow', __('Shadow', 'weather-in-any-city-widget'), 'off', 'classic'),
+			$check('credit_link', WIYCW_credit_label(), 'on'),
 		),
 	);
 }
@@ -232,7 +233,7 @@ function WIYCW_generator_defaults(){
 		'time_format' => 'time_format', 'fontsize' => 'fontSize', 'textcolor' => 'textColor', 'backgroundcolor' => 'backgroundColor',
 		'bordercolor' => 'borderColor', 'weathericonscolor' => 'weatherIconsColor', 'iconscolor' => 'iconsColor', 'rainchance' => 'rainChance');
 	foreach(array('description', 'feels_like', 'now_visibility', 'hourly', 'unit_switch', 'updated', 'animation', 'today', 'now_icon', 'now_temp',
-		'now_humidity', 'now_wind', 'now_pressure', 'now_cloudiness', 'now_sunrise', 'temp', 'icon', 'rain', 'wind', 'shadow') as $name){
+		'now_humidity', 'now_wind', 'now_pressure', 'now_cloudiness', 'now_sunrise', 'temp', 'icon', 'rain', 'wind', 'shadow', 'credit_link') as $name){
 		$names[$name] = $name;
 	}
 	$defaults = array();

@@ -236,6 +236,31 @@
 	display: none;
 }
 
+/* the small link to the weather service: its logo, centred */
+.WIYCW-footer:not(:empty){
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+}
+
+.WIYCW-footer .WIYCW-credit{
+	display: inline-flex;
+	flex-shrink: 0;
+	line-height: 0;
+}
+
+.WIYCW-footer .WIYCW-credit img{
+	display: block;
+	width: auto;
+	max-width: none;
+	height: 18px;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
 /* ---- The card design: a sky that tells the weather, the facts and the days on white ---- */
 
 .WIYCW-design-card{
@@ -607,7 +632,7 @@
 .WIYCW-design-card .WIYCW-footer,
 .WIYCW-design-card .WIYCW-footer a,
 .WIYCW-design-card .WIYCW-footer a:visited{
-	color: #006aa6 !important;
+	color: #62748a !important;
 }
 
 .WIYCW-design-card .WIYCW-footer a:hover{

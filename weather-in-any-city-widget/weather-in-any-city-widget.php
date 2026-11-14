@@ -3,7 +3,7 @@
  * Plugin Name: Weather Widget Pro
  * Plugin URI: https://weatherin.org
  * Description: Weather Widget Pro provides a complete weather forecast for any location around the world.
- * Version: 2.0.3
+ * Version: 2.0.4
  * Author: El tiempo
  * Author URI: https://eltiempoen.com
  * Text Domain: weather-in-any-city-widget
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) or die( 'ABSPATH not defined' );
 
-define ('WIYCW_VERSION', '2.0.3');
+define ('WIYCW_VERSION', '2.0.4');
 // The weather service, on the standard HTTPS port (the old eltiempoen.com:9090 is not reachable any more)
 define ('WIYCW_API', 'https://eltiempoen.com/api/weather');
 define ('WIYCW_DEF_PLUGIN', 'weather-in-any-city-widget');
@@ -30,8 +30,30 @@ require_once dirname(__FILE__) . '/includes/WIYCW-admin.php';
 add_action('init', 'WIYCW_textdomain');
 
 
+// The texts of the plugin first: WordPress keeps the first translation it loads of each text, and the language pack of
+// translate.wordpress.org (wp-content/languages/plugins) can be one of an old version, without the texts of now. Loaded
+// after, the pack fills in what the plugin does not bring (another language)
 function WIYCW_textdomain() {
+	$locale = function_exists('determine_locale') ? determine_locale() : get_locale();
+	load_textdomain('weather-in-any-city-widget', dirname(__FILE__) . '/languages/weather-in-any-city-widget-' . $locale . '.mo');
     load_plugin_textdomain('weather-in-any-city-widget', FALSE, plugin_basename(dirname(__FILE__)) . '/languages' );
+}
+
+// Two Spanish translations for every variety of Spanish: es_ES (Spain) and es (the Americas: «clima», «nublado»).
+// WordPress asks for the file of the exact locale (es_MX, es_AR…) and, without it, shows English. Only the files of
+// this plugin are redirected: a translation of translate.wordpress.org for that locale (wp-content/languages) still wins
+add_filter('load_textdomain_mofile', 'WIYCW_spanish_file', 10, 2);
+function WIYCW_spanish_file($mofile, $domain){
+	if($domain !== 'weather-in-any-city-widget' || file_exists($mofile)){
+		return $mofile;
+	}
+	$dir = wp_normalize_path(dirname(__FILE__) . '/languages/');
+	$path = wp_normalize_path($mofile);
+	if(strpos($path, $dir) !== 0 || !preg_match('~-es_([A-Z]{2})\.mo$~', $path, $match)){
+		return $mofile;
+	}
+	$file = $dir . 'weather-in-any-city-widget-' . ($match[1] === 'ES' ? 'es_ES' : 'es') . '.mo';
+	return file_exists($file) ? $file : $mofile;
 }
 
 function WIYCW_default_values($instance){
@@ -76,6 +98,8 @@ function WIYCW_default_values($instance){
 	$instance['unit_switch'] = !empty($instance['unit_switch']) ? $instance['unit_switch'] : "off";
 	$instance['updated'] = !empty($instance['updated']) ? $instance['updated'] : "off";
 	$instance['animation'] = !empty($instance['animation']) ? $instance['animation'] : "on";
+	// since 2.0.4: the small link to the weather service under the widget (on unless it is switched off)
+	$instance['credit_link'] = !empty($instance['credit_link']) && $instance['credit_link'] == 'off' ? 'off' : 'on';
 	$instance['now_visibility'] = !empty($instance['now_visibility']) ? $instance['now_visibility'] : "off";
 	$instance['url'] = admin_url('admin-ajax.php');
 	$instance['action'] = "WIYCW_get_weather";
@@ -167,7 +191,7 @@ function WIYCW_boxes(){
 }
 
 function WIYCW_new_boxes(){
-	return array('description', 'feels_like', 'hourly', 'unit_switch', 'updated', 'animation', 'now_visibility');
+	return array('description', 'feels_like', 'hourly', 'unit_switch', 'updated', 'animation', 'now_visibility', 'credit_link');
 }
 
 class WIYCW_widget extends WP_Widget
@@ -767,7 +791,13 @@ class WIYCW_widget extends WP_Widget
 							id="<?php echo $this->get_field_id('shadow'); ?>"
 							name="<?php echo $this->get_field_name('shadow'); ?>"
 							></input>
-						<label for="<?php echo $this->get_field_id('shadow'); ?>"><?php echo __('Shadow', 'weather-in-any-city-widget')?></label>	
+						<label for="<?php echo $this->get_field_id('shadow'); ?>"><?php echo __('Shadow', 'weather-in-any-city-widget')?></label>
+					</p>
+					<p class="form-line">
+						<input class="checkbox" type="checkbox" <?php checked($instance['credit_link'], 'on'); ?>
+							id="<?php echo esc_attr($this->get_field_id('credit_link')); ?>"
+							name="<?php echo esc_attr($this->get_field_name('credit_link')); ?>" />
+						<label for="<?php echo esc_attr($this->get_field_id('credit_link')); ?>"><?php echo esc_html(WIYCW_credit_label()); ?></label>
 					</p>
 
 				
@@ -807,6 +837,51 @@ function WIYCW_admin_scripts( $hook ) {
 add_action('admin_enqueue_scripts', 'WIYCW_admin_scripts');
 
 
+// The weather service whose logo goes under the widgets of this site: eltiempoen.com in Spanish, weatherin.org in any
+// other language (the language of the site, not the one of whoever edits it)
+function WIYCW_credit_brand(){
+	return strpos(get_locale(), 'es') === 0 ? 'eltiempoen.com' : 'weatherin.org';
+}
+
+// The words of the box that switches the logo off: «Show the logo of eltiempoen.com»
+function WIYCW_credit_label(){
+	/* translators: %s: eltiempoen.com or weatherin.org */
+	return sprintf(__('Show the logo of %s', 'weather-in-any-city-widget'), WIYCW_credit_brand());
+}
+
+/**
+ * The small link under the widget: the logo of the weather service (eltiempoen.com in Spanish, weatherin.org in any
+ * other language) to the page of the city, nofollow, with the name of the city in words in its alt. It can be switched off
+ * (credit_link, in the widget, the block and the shortcode).
+ */
+function WIYCW_credit($instance){
+	if(isset($instance['credit_link']) && $instance['credit_link'] == 'off'){
+		return '';
+	}
+	// the locale of the site (es_MX), not get_bloginfo('language'), which says «es» for many varieties of Spanish
+	$locale = function_exists('determine_locale') ? determine_locale() : get_locale();
+	$spanish = strpos($locale, 'es') === 0;
+	// «el tiempo» in Spain, «clima» in the Americas
+	$spain = in_array($locale, array('es', 'es_ES', 'es_CL'), true);
+	$brand = $spanish ? 'eltiempoen.com' : 'weatherin.org';
+	$city = isset($instance['city']) ? $instance['city'] : '';
+	// the page of the city when the widget knows it (the widget and the block; a shortcode, only with its city); if not, the home
+	if(!empty($instance['url_en']) && !empty($instance['url_es'])){
+		$url = $spanish ? 'https://eltiempoen.com/' . $instance['url_es'] : 'https://weatherin.org/' . $instance['url_en'];
+	}else{
+		$url = 'https://' . $brand;
+	}
+	if($city !== ''){
+		$text = $spanish ? ($spain ? 'El tiempo en ' : 'Clima en ') . $city : $city . ' weather';
+	}else{
+		$text = $spanish ? ($spain ? 'El tiempo' : 'Clima') : 'Weather';
+	}
+	$icon = plugin_dir_url(__FILE__) . 'resources/icons/credit/' . ($spanish ? 'eltiempoen' : 'weatherin') . '.svg';
+	// the logo of the header of the site (233 × 62, drawn 18 px high), the words in its alt
+	return "<a class='WIYCW-credit' href='" . esc_url($url) . "' rel='nofollow' title='" . esc_attr($text) . "'>"
+		. "<img src='" . esc_url($icon) . "' alt='" . esc_attr($text) . "' width='68' height='18' loading='lazy' decoding='async'></a>";
+}
+
 function WIYCW_public($instance){
 	$card = $instance['design'] == 'card';
 	WIYCW_enqueue($card);
@@ -814,24 +889,7 @@ function WIYCW_public($instance){
    	$i18n = WIYCW_i18n();
    	$lang = get_bloginfo("language");
 
-   	$credits = "";
-   	if(!empty($instance['url_en']) && !empty($instance['url_es'])){
-   		if($lang == "es" || $lang == "es_ES" || $lang == "es_CL"){
-	   		$credits = "<a class='WIYCW-credit' style='text-decoration: none; color:".esc_attr($instance['textColor'])."' href='https://eltiempoen.com/".esc_attr($instance['url_es'])."'>El tiempo en ".esc_attr($instance['city'])."</a>";
-	   	}else if(strpos($lang, 'es') === 0){
-			$credits = "<a class='WIYCW-credit' style='text-decoration: none; color:".esc_attr($instance['textColor'])."' href='https://eltiempoen.com/".esc_attr($instance['url_es'])."'>Clima en ".esc_attr($instance['city'])."</a>";
-	   	}else{
-	   		$credits = "<a class='WIYCW-credit' style='text-decoration: none; color:".esc_attr($instance['textColor'])."' href='https://weatherin.org/".esc_attr($instance['url_en'])."'>".esc_attr($instance['city'])." weather</a>";
-	   	}
-   	}else{
-	   	if($lang == "es" || $lang == "es_ES" || $lang == "es_CL"){
-	   		$credits = "<a class='WIYCW-credit' style='text-decoration: none; color:".esc_attr($instance['textColor'])."' href='https://eltiempoen.com'>El tiempo</a> por eltiempoen.com";
-	   	}else if(strpos($lang, 'es') === 0){
-	   		$credits = "<a class='WIYCW-credit' style='text-decoration: none; color:".esc_attr($instance['textColor'])."' href='https://eltiempoen.com'>Clima</a> por eltiempoen.com";
-	   	}else{
-	   		$credits = "<a class='WIYCW-credit' style='text-decoration: none; color:".esc_attr($instance['textColor'])."' href='https://weatherin.org'>Weather</a> by weatherin.org";
-	   	}
-   	}
+   	$credits = WIYCW_credit($instance);
 
    	if(!empty($instance['title'])){
    		$title = $instance['title'];

@@ -4,7 +4,7 @@ Tags: weather, weather widget, weather forecast, tiempo, clima
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,7 @@ A minimal shortcode looks like this:
 * `temp`, `icon`, `rainchance`, `rain`, `wind` – forecast columns, `on` / `off`
 * `time_format` – `universal` (24 h) or `standard` (12 h)
 * `fontsize` – in pixels
+* `credit_link` – `on` (default) / `off`: the small link to the weather service (its logo) under the widget
 * Sky card only: `description`, `feels_like`, `now_visibility`, `hourly`, `unit_switch`, `updated`, `animation` – `on` / `off`
 * `layout` – `horizontal` (default) or `vertical`; a horizontal sky card stacks automatically in narrow spaces
 * Classic design only: `backgroundcolor`, `textcolor`, `bordercolor`, `weathericonscolor` (`color`, `dark` or `light`), `iconscolor` (`dark` or `light`), `shadow` (`on` / `off`)
@@ -144,6 +145,11 @@ Privacy policy: https://weatherin.org/privacy-policy (English) and https://eltie
 5. The classic design, with your own colors, next to the sky card.
 
 == Changelog ==
+
+= 2.0.4 =
+* New: the small link under the widget is now the logo of the weather service, and it can be switched off in the widget, the block and the shortcode generator (`credit_link="off"`).
+* Fixed: in Spanish (and any language with an older translation on translate.wordpress.org), most of the plugin showed in English: the translations of the plugin now come first.
+* Improved: every variety of Spanish gets its translation: Spain, or the Americas for the rest (before, only the countries with their own file).
 
 = 2.0.3 =
 * New: Settings > Weather Widget Pro writes the shortcode with every option of the widget, with a live preview.

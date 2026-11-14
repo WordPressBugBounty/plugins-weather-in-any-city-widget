@@ -474,3 +474,8 @@ msgstr "Vista previa"
 #, php-format
 msgid "Shown at %d%% of its size so that it fits here: on your site it will look bigger."
 msgstr "Se muestra al %d %% de su tamaño para que quepa aquí: en tu web se verá más grande."
+
+#. translators: %s: eltiempoen.com or weatherin.org
+#, php-format
+msgid "Show the logo of %s"
+msgstr "Mostrar el logo de %s"

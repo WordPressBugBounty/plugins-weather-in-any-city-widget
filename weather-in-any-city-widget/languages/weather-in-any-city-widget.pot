@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Weather Widget Pro 2.0.3\n"
+"Project-Id-Version: Weather Widget Pro 2.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-14 10:40+0100\n"
+"POT-Creation-Date: 2026-11-14 20:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,536 +17,542 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: weather-in-any-city-widget.php:88
+#: weather-in-any-city-widget.php:112
 msgid "mon."
 msgstr ""
 
-#: weather-in-any-city-widget.php:89
+#: weather-in-any-city-widget.php:113
 msgid "tue."
 msgstr ""
 
-#: weather-in-any-city-widget.php:90
+#: weather-in-any-city-widget.php:114
 msgid "wed."
 msgstr ""
 
-#: weather-in-any-city-widget.php:91
+#: weather-in-any-city-widget.php:115
 msgid "thu."
 msgstr ""
 
-#: weather-in-any-city-widget.php:92
+#: weather-in-any-city-widget.php:116
 msgid "fri."
 msgstr ""
 
-#: weather-in-any-city-widget.php:93
+#: weather-in-any-city-widget.php:117
 msgid "sat."
 msgstr ""
 
-#: weather-in-any-city-widget.php:94
+#: weather-in-any-city-widget.php:118
 msgid "sun."
 msgstr ""
 
-#: weather-in-any-city-widget.php:95
+#: weather-in-any-city-widget.php:119
 msgid "today"
 msgstr ""
 
-#: weather-in-any-city-widget.php:96
+#: weather-in-any-city-widget.php:120
 msgid "tmrw."
 msgstr ""
 
-#: weather-in-any-city-widget.php:98 weather-in-any-city-widget.php:406
+#: weather-in-any-city-widget.php:122 weather-in-any-city-widget.php:430
 #: includes/WIYCW-admin.php:186 includes/WIYCW-block.php:45
 msgid "Feels like"
 msgstr ""
 
-#: weather-in-any-city-widget.php:99 weather-in-any-city-widget.php:488
+#: weather-in-any-city-widget.php:123 weather-in-any-city-widget.php:512
 #: includes/WIYCW-admin.php:197 includes/WIYCW-block.php:51
 msgid "Humidity"
 msgstr ""
 
-#: weather-in-any-city-widget.php:100 weather-in-any-city-widget.php:500
-#: weather-in-any-city-widget.php:670 includes/WIYCW-admin.php:198
-#: includes/WIYCW-admin.php:212 includes/WIYCW-block.php:74
+#: weather-in-any-city-widget.php:124 weather-in-any-city-widget.php:524
+#: weather-in-any-city-widget.php:694 includes/WIYCW-admin.php:198
+#: includes/WIYCW-admin.php:212 includes/WIYCW-block.php:75
 msgid "Wind"
 msgstr ""
 
-#: weather-in-any-city-widget.php:101 weather-in-any-city-widget.php:512
+#: weather-in-any-city-widget.php:125 weather-in-any-city-widget.php:536
 #: includes/WIYCW-admin.php:199 includes/WIYCW-block.php:57
 msgid "Pressure"
 msgstr ""
 
-#: weather-in-any-city-widget.php:102 weather-in-any-city-widget.php:524
+#: weather-in-any-city-widget.php:126 weather-in-any-city-widget.php:548
 #: includes/WIYCW-admin.php:201 includes/WIYCW-block.php:40
 msgid "Cloudiness"
 msgstr ""
 
-#: weather-in-any-city-widget.php:103 weather-in-any-city-widget.php:412
-#: includes/WIYCW-admin.php:187 includes/WIYCW-block.php:71
+#: weather-in-any-city-widget.php:127 weather-in-any-city-widget.php:436
+#: includes/WIYCW-admin.php:187 includes/WIYCW-block.php:72
 msgid "Visibility"
 msgstr ""
 
-#: weather-in-any-city-widget.php:104 includes/WIYCW-block.php:63
+#: weather-in-any-city-widget.php:128 includes/WIYCW-block.php:64
 msgid "Sunrise"
 msgstr ""
 
-#: weather-in-any-city-widget.php:105 includes/WIYCW-block.php:64
+#: weather-in-any-city-widget.php:129 includes/WIYCW-block.php:65
 msgid "Sunset"
 msgstr ""
 
-#: weather-in-any-city-widget.php:106 weather-in-any-city-widget.php:683
+#: weather-in-any-city-widget.php:130 weather-in-any-city-widget.php:707
 #: includes/WIYCW-admin.php:210 includes/WIYCW-block.php:59
 msgid "Rain probability"
 msgstr ""
 
-#: weather-in-any-city-widget.php:107 weather-in-any-city-widget.php:561
+#: weather-in-any-city-widget.php:131 weather-in-any-city-widget.php:585
 #: includes/WIYCW-admin.php:206 includes/WIYCW-block.php:48
 msgid "Forecast"
 msgstr ""
 
-#: weather-in-any-city-widget.php:108 weather-in-any-city-widget.php:418
+#: weather-in-any-city-widget.php:132 weather-in-any-city-widget.php:442
 #: includes/WIYCW-admin.php:188 includes/WIYCW-block.php:56
 msgid "Hourly forecast"
 msgstr ""
 
-#: weather-in-any-city-widget.php:109 weather-in-any-city-widget.php:356
-#: includes/WIYCW-admin.php:176 includes/WIYCW-block.php:69
+#: weather-in-any-city-widget.php:133 weather-in-any-city-widget.php:380
+#: includes/WIYCW-admin.php:176 includes/WIYCW-block.php:70
 msgid "Units"
 msgstr ""
 
-#: weather-in-any-city-widget.php:110 weather-in-any-city-widget.php:441
+#: weather-in-any-city-widget.php:134 weather-in-any-city-widget.php:465
 #: includes/WIYCW-admin.php:193 includes/WIYCW-block.php:41
 msgid "Current conditions"
 msgstr ""
 
 #. translators: %s: a time, like 14:30
-#: weather-in-any-city-widget.php:112
+#: weather-in-any-city-widget.php:136
 #, php-format
 msgid "Updated at %s"
 msgstr ""
 
-#: weather-in-any-city-widget.php:113
+#: weather-in-any-city-widget.php:137
 msgid "Weather data is temporarily unavailable."
 msgstr ""
 
-#: weather-in-any-city-widget.php:114
+#: weather-in-any-city-widget.php:138
 msgid "The weather service is not available for this site."
 msgstr ""
 
-#: weather-in-any-city-widget.php:115
+#: weather-in-any-city-widget.php:139
 msgid ""
 "The weather service has blocked this site. Contact us at weatherin.org/"
 "contact to restore access."
 msgstr ""
 
-#: weather-in-any-city-widget.php:116
+#: weather-in-any-city-widget.php:140
 msgid ""
 "Too many requests to the weather service. The widget will try again in a few "
 "minutes."
 msgstr ""
 
-#: weather-in-any-city-widget.php:117
+#: weather-in-any-city-widget.php:141
 msgid ""
 "The city of this widget was not found. Choose it again in the widget "
 "settings."
 msgstr ""
 
-#: weather-in-any-city-widget.php:118
+#: weather-in-any-city-widget.php:142
 msgid ""
 "This site could not reach the weather service (eltiempoen.com). Check that "
 "your server allows outgoing connections."
 msgstr ""
 
-#: weather-in-any-city-widget.php:119
+#: weather-in-any-city-widget.php:143
 msgid ""
 "The weather service did not respond. The widget will try again in a few "
 "minutes."
 msgstr ""
 
-#: weather-in-any-city-widget.php:120
+#: weather-in-any-city-widget.php:144
 msgid ""
 "This site did not respond to the request of the widget (admin-ajax.php)."
 msgstr ""
 
-#: weather-in-any-city-widget.php:121
+#: weather-in-any-city-widget.php:145
 msgid "(Only site editors can see this.)"
 msgstr ""
 
-#: weather-in-any-city-widget.php:129
+#: weather-in-any-city-widget.php:153
 msgid "Thunderstorm with rain"
 msgstr ""
 
-#: weather-in-any-city-widget.php:130
+#: weather-in-any-city-widget.php:154
 msgid "Thunderstorm"
 msgstr ""
 
-#: weather-in-any-city-widget.php:131
+#: weather-in-any-city-widget.php:155
 msgid "Drizzle"
 msgstr ""
 
-#: weather-in-any-city-widget.php:132
+#: weather-in-any-city-widget.php:156
 msgid "Light rain"
 msgstr ""
 
-#: weather-in-any-city-widget.php:133 includes/WIYCW-admin.php:211
+#: weather-in-any-city-widget.php:157 includes/WIYCW-admin.php:211
 #: includes/WIYCW-block.php:58
 msgid "Rain"
 msgstr ""
 
-#: weather-in-any-city-widget.php:134
+#: weather-in-any-city-widget.php:158
 msgid "Heavy rain"
 msgstr ""
 
-#: weather-in-any-city-widget.php:135
+#: weather-in-any-city-widget.php:159
 msgid "Showers"
 msgstr ""
 
-#: weather-in-any-city-widget.php:136
+#: weather-in-any-city-widget.php:160
 msgid "Sleet"
 msgstr ""
 
-#: weather-in-any-city-widget.php:137
+#: weather-in-any-city-widget.php:161
 msgid "Dust"
 msgstr ""
 
-#: weather-in-any-city-widget.php:144
+#: weather-in-any-city-widget.php:168
 msgid "Freezing rain"
 msgstr ""
 
-#: weather-in-any-city-widget.php:145
+#: weather-in-any-city-widget.php:169
 msgid "Light showers"
 msgstr ""
 
-#: weather-in-any-city-widget.php:146
+#: weather-in-any-city-widget.php:170
 msgid "Heavy showers"
 msgstr ""
 
-#: weather-in-any-city-widget.php:147
+#: weather-in-any-city-widget.php:171
 msgid "Light snow"
 msgstr ""
 
-#: weather-in-any-city-widget.php:147
+#: weather-in-any-city-widget.php:171
 msgid "Snow"
 msgstr ""
 
-#: weather-in-any-city-widget.php:148
+#: weather-in-any-city-widget.php:172
 msgid "Heavy snow"
 msgstr ""
 
-#: weather-in-any-city-widget.php:150
+#: weather-in-any-city-widget.php:174
 msgid "Rain and snow"
 msgstr ""
 
-#: weather-in-any-city-widget.php:151
+#: weather-in-any-city-widget.php:175
 msgid "Light snow showers"
 msgstr ""
 
-#: weather-in-any-city-widget.php:151
+#: weather-in-any-city-widget.php:175
 msgid "Snow showers"
 msgstr ""
 
-#: weather-in-any-city-widget.php:152
+#: weather-in-any-city-widget.php:176
 msgid "Heavy snow showers"
 msgstr ""
 
-#: weather-in-any-city-widget.php:153
+#: weather-in-any-city-widget.php:177
 msgid "Mist"
 msgstr ""
 
-#: weather-in-any-city-widget.php:153
+#: weather-in-any-city-widget.php:177
 msgid "Smoke"
 msgstr ""
 
-#: weather-in-any-city-widget.php:154
+#: weather-in-any-city-widget.php:178
 msgid "Haze"
 msgstr ""
 
-#: weather-in-any-city-widget.php:154
+#: weather-in-any-city-widget.php:178
 msgid "Fog"
 msgstr ""
 
-#: weather-in-any-city-widget.php:156
+#: weather-in-any-city-widget.php:180
 msgid "Squalls"
 msgstr ""
 
-#: weather-in-any-city-widget.php:156
+#: weather-in-any-city-widget.php:180
 msgid "Tornado"
 msgstr ""
 
-#: weather-in-any-city-widget.php:157
+#: weather-in-any-city-widget.php:181
 msgid "Clear sky"
 msgstr ""
 
-#: weather-in-any-city-widget.php:157
+#: weather-in-any-city-widget.php:181
 msgid "Mostly clear"
 msgstr ""
 
-#: weather-in-any-city-widget.php:158
+#: weather-in-any-city-widget.php:182
 msgid "Partly cloudy"
 msgstr ""
 
-#: weather-in-any-city-widget.php:158
+#: weather-in-any-city-widget.php:182
 msgid "Mostly cloudy"
 msgstr ""
 
-#: weather-in-any-city-widget.php:159
+#: weather-in-any-city-widget.php:183
 msgid "Overcast"
 msgstr ""
 
-#: weather-in-any-city-widget.php:177 includes/WIYCW-block.php:110
+#: weather-in-any-city-widget.php:201 includes/WIYCW-block.php:111
 msgid ""
 "Weather Widget Pro provides a complete weather forecast for any location "
 "around the world."
 msgstr ""
 
-#: weather-in-any-city-widget.php:178 includes/WIYCW-admin.php:16
+#: weather-in-any-city-widget.php:202 includes/WIYCW-admin.php:16
 #: includes/WIYCW-admin.php:17 includes/WIYCW-admin.php:48
-#: includes/WIYCW-admin.php:82 includes/WIYCW-block.php:72
-#: includes/WIYCW-block.php:109
+#: includes/WIYCW-admin.php:82 includes/WIYCW-block.php:73
+#: includes/WIYCW-block.php:110
 msgid "Weather Widget Pro"
 msgstr ""
 
-#: weather-in-any-city-widget.php:287 includes/WIYCW-admin.php:173
+#: weather-in-any-city-widget.php:311 includes/WIYCW-admin.php:173
 #: includes/WIYCW-block.php:49
 msgid "General"
 msgstr ""
 
-#: weather-in-any-city-widget.php:291 includes/WIYCW-admin.php:174
+#: weather-in-any-city-widget.php:315 includes/WIYCW-admin.php:174
 #: includes/WIYCW-block.php:37
 msgid "City"
 msgstr ""
 
-#: weather-in-any-city-widget.php:344 includes/WIYCW-admin.php:175
-#: includes/WIYCW-block.php:68
+#: weather-in-any-city-widget.php:368 includes/WIYCW-admin.php:175
+#: includes/WIYCW-block.php:69
 msgid "Title"
 msgstr ""
 
-#: weather-in-any-city-widget.php:344 includes/WIYCW-admin.php:175
-#: includes/WIYCW-block.php:75
+#: weather-in-any-city-widget.php:368 includes/WIYCW-admin.php:175
+#: includes/WIYCW-block.php:76
 msgid "optional"
 msgstr ""
 
-#: weather-in-any-city-widget.php:350
+#: weather-in-any-city-widget.php:374
 msgid "Title will overwrite the city name"
 msgstr ""
 
-#: weather-in-any-city-widget.php:361 includes/WIYCW-admin.php:177
+#: weather-in-any-city-widget.php:385 includes/WIYCW-admin.php:177
 #: includes/WIYCW-block.php:36
 msgid "Celsius"
 msgstr ""
 
-#: weather-in-any-city-widget.php:365 includes/WIYCW-admin.php:177
+#: weather-in-any-city-widget.php:389 includes/WIYCW-admin.php:177
 #: includes/WIYCW-block.php:44
 msgid "Fahrenheit"
 msgstr ""
 
-#: weather-in-any-city-widget.php:372 weather-in-any-city-widget.php:375
+#: weather-in-any-city-widget.php:396 weather-in-any-city-widget.php:399
 #: includes/WIYCW-admin.php:179 includes/WIYCW-admin.php:180
 #: includes/WIYCW-block.php:43
 msgid "Design"
 msgstr ""
 
-#: weather-in-any-city-widget.php:377 includes/WIYCW-admin.php:181
+#: weather-in-any-city-widget.php:401 includes/WIYCW-admin.php:181
 #: includes/WIYCW-block.php:38
 msgid "Sky card"
 msgstr ""
 
-#: weather-in-any-city-widget.php:378 includes/WIYCW-admin.php:181
+#: weather-in-any-city-widget.php:402 includes/WIYCW-admin.php:181
 #: includes/WIYCW-block.php:39
 msgid "Classic"
 msgstr ""
 
-#: weather-in-any-city-widget.php:382 includes/WIYCW-admin.php:182
+#: weather-in-any-city-widget.php:406 includes/WIYCW-admin.php:182
 #: includes/WIYCW-block.php:53
 msgid "Layout"
 msgstr ""
 
-#: weather-in-any-city-widget.php:387 includes/WIYCW-admin.php:183
-#: includes/WIYCW-block.php:70
+#: weather-in-any-city-widget.php:411 includes/WIYCW-admin.php:183
+#: includes/WIYCW-block.php:71
 msgid "Vertical"
 msgstr ""
 
-#: weather-in-any-city-widget.php:391 includes/WIYCW-admin.php:183
+#: weather-in-any-city-widget.php:415 includes/WIYCW-admin.php:183
 #: includes/WIYCW-block.php:50
 msgid "Horizontal"
 msgstr ""
 
-#: weather-in-any-city-widget.php:395 includes/WIYCW-admin.php:184
+#: weather-in-any-city-widget.php:419 includes/WIYCW-admin.php:184
 msgid ""
 "The sky card changes its sky with the weather. These options only apply to "
 "it:"
 msgstr ""
 
-#: weather-in-any-city-widget.php:400 includes/WIYCW-admin.php:185
-#: includes/WIYCW-block.php:73
+#: weather-in-any-city-widget.php:424 includes/WIYCW-admin.php:185
+#: includes/WIYCW-block.php:74
 msgid "Weather in words"
 msgstr ""
 
-#: weather-in-any-city-widget.php:424 includes/WIYCW-admin.php:189
+#: weather-in-any-city-widget.php:448 includes/WIYCW-admin.php:189
 #: includes/WIYCW-block.php:54
 msgid "Let visitors switch between °C and °F"
 msgstr ""
 
-#: weather-in-any-city-widget.php:430 includes/WIYCW-admin.php:190
-#: includes/WIYCW-block.php:67
+#: weather-in-any-city-widget.php:454 includes/WIYCW-admin.php:190
+#: includes/WIYCW-block.php:68
 msgid "Time of the last update"
 msgstr ""
 
-#: weather-in-any-city-widget.php:436 includes/WIYCW-admin.php:191
+#: weather-in-any-city-widget.php:460 includes/WIYCW-admin.php:191
 #: includes/WIYCW-block.php:33
 msgid "Animated sky"
 msgstr ""
 
-#: weather-in-any-city-widget.php:452 includes/WIYCW-admin.php:194
-#: includes/WIYCW-block.php:62
+#: weather-in-any-city-widget.php:476 includes/WIYCW-admin.php:194
+#: includes/WIYCW-block.php:63
 msgid "Show current conditions"
 msgstr ""
 
-#: weather-in-any-city-widget.php:464 weather-in-any-city-widget.php:658
+#: weather-in-any-city-widget.php:488 weather-in-any-city-widget.php:682
 #: includes/WIYCW-admin.php:195 includes/WIYCW-admin.php:209
 #: includes/WIYCW-block.php:52
 msgid "Icon"
 msgstr ""
 
-#: weather-in-any-city-widget.php:476 weather-in-any-city-widget.php:645
+#: weather-in-any-city-widget.php:500 weather-in-any-city-widget.php:669
 #: includes/WIYCW-admin.php:196 includes/WIYCW-admin.php:208
-#: includes/WIYCW-block.php:65
+#: includes/WIYCW-block.php:66
 msgid "Temperature"
 msgstr ""
 
-#: weather-in-any-city-widget.php:538 includes/WIYCW-admin.php:202
+#: weather-in-any-city-widget.php:562 includes/WIYCW-admin.php:202
 msgid "Sunrise / sunset"
 msgstr ""
 
-#: weather-in-any-city-widget.php:542 includes/WIYCW-admin.php:203
-#: includes/WIYCW-block.php:66
+#: weather-in-any-city-widget.php:566 includes/WIYCW-admin.php:203
+#: includes/WIYCW-block.php:67
 msgid "Time format"
 msgstr ""
 
-#: weather-in-any-city-widget.php:547 includes/WIYCW-admin.php:204
+#: weather-in-any-city-widget.php:571 includes/WIYCW-admin.php:204
 #: includes/WIYCW-block.php:32
 msgid "24 hours"
 msgstr ""
 
-#: weather-in-any-city-widget.php:551 includes/WIYCW-admin.php:204
+#: weather-in-any-city-widget.php:575 includes/WIYCW-admin.php:204
 #: includes/WIYCW-block.php:31
 msgid "12 hours"
 msgstr ""
 
-#: weather-in-any-city-widget.php:563 includes/WIYCW-admin.php:207
+#: weather-in-any-city-widget.php:587 includes/WIYCW-admin.php:207
 #: includes/WIYCW-block.php:42
 msgid "Days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:568 includes/WIYCW-admin.php:154
+#: weather-in-any-city-widget.php:592 includes/WIYCW-admin.php:154
 msgid "Disable forecast"
 msgstr ""
 
-#: weather-in-any-city-widget.php:572 includes/WIYCW-admin.php:155
+#: weather-in-any-city-widget.php:596 includes/WIYCW-admin.php:155
 msgid "1 day"
 msgstr ""
 
-#: weather-in-any-city-widget.php:576 includes/WIYCW-admin.php:156
+#: weather-in-any-city-widget.php:600 includes/WIYCW-admin.php:156
 msgid "2 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:580 includes/WIYCW-admin.php:157
+#: weather-in-any-city-widget.php:604 includes/WIYCW-admin.php:157
 msgid "3 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:584 includes/WIYCW-admin.php:158
+#: weather-in-any-city-widget.php:608 includes/WIYCW-admin.php:158
 msgid "4 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:588 includes/WIYCW-admin.php:159
+#: weather-in-any-city-widget.php:612 includes/WIYCW-admin.php:159
 msgid "5 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:592 includes/WIYCW-admin.php:160
+#: weather-in-any-city-widget.php:616 includes/WIYCW-admin.php:160
 msgid "6 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:596 includes/WIYCW-admin.php:161
+#: weather-in-any-city-widget.php:620 includes/WIYCW-admin.php:161
 msgid "7 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:600 includes/WIYCW-admin.php:162
+#: weather-in-any-city-widget.php:624 includes/WIYCW-admin.php:162
 msgid "8 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:604 includes/WIYCW-admin.php:163
+#: weather-in-any-city-widget.php:628 includes/WIYCW-admin.php:163
 msgid "9 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:608 includes/WIYCW-admin.php:164
+#: weather-in-any-city-widget.php:632 includes/WIYCW-admin.php:164
 msgid "10 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:612 includes/WIYCW-admin.php:165
+#: weather-in-any-city-widget.php:636 includes/WIYCW-admin.php:165
 msgid "11 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:616 includes/WIYCW-admin.php:166
+#: weather-in-any-city-widget.php:640 includes/WIYCW-admin.php:166
 msgid "12 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:620 includes/WIYCW-admin.php:167
+#: weather-in-any-city-widget.php:644 includes/WIYCW-admin.php:167
 msgid "13 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:624 weather-in-any-city-widget.php:628
+#: weather-in-any-city-widget.php:648 weather-in-any-city-widget.php:652
 #: includes/WIYCW-admin.php:168
 msgid "14 days"
 msgstr ""
 
-#: weather-in-any-city-widget.php:689 includes/WIYCW-admin.php:214
+#: weather-in-any-city-widget.php:713 includes/WIYCW-admin.php:214
 #: includes/WIYCW-block.php:55
 msgid "Look and feel"
 msgstr ""
 
-#: weather-in-any-city-widget.php:692 includes/WIYCW-admin.php:215
+#: weather-in-any-city-widget.php:716 includes/WIYCW-admin.php:215
 #: includes/WIYCW-block.php:47
 msgid "Font size"
 msgstr ""
 
-#: weather-in-any-city-widget.php:700 includes/WIYCW-admin.php:219
+#: weather-in-any-city-widget.php:724 includes/WIYCW-admin.php:219
 msgid "Weather icons color"
 msgstr ""
 
-#: weather-in-any-city-widget.php:705 includes/WIYCW-admin.php:220
+#: weather-in-any-city-widget.php:729 includes/WIYCW-admin.php:220
 msgid "Color"
 msgstr ""
 
-#: weather-in-any-city-widget.php:709 weather-in-any-city-widget.php:727
+#: weather-in-any-city-widget.php:733 weather-in-any-city-widget.php:751
 #: includes/WIYCW-admin.php:220 includes/WIYCW-admin.php:222
 msgid "Light"
 msgstr ""
 
-#: weather-in-any-city-widget.php:713 weather-in-any-city-widget.php:731
+#: weather-in-any-city-widget.php:737 weather-in-any-city-widget.php:755
 #: includes/WIYCW-admin.php:220 includes/WIYCW-admin.php:222
 msgid "Dark"
 msgstr ""
 
-#: weather-in-any-city-widget.php:722 includes/WIYCW-admin.php:221
+#: weather-in-any-city-widget.php:746 includes/WIYCW-admin.php:221
 msgid "UI icons color"
 msgstr ""
 
-#: weather-in-any-city-widget.php:739 includes/WIYCW-admin.php:216
+#: weather-in-any-city-widget.php:763 includes/WIYCW-admin.php:216
 #: includes/WIYCW-block.php:46
 msgid "Font color"
 msgstr ""
 
-#: weather-in-any-city-widget.php:747 includes/WIYCW-admin.php:217
+#: weather-in-any-city-widget.php:771 includes/WIYCW-admin.php:217
 #: includes/WIYCW-block.php:34
 msgid "Background color"
 msgstr ""
 
-#: weather-in-any-city-widget.php:755 includes/WIYCW-admin.php:218
+#: weather-in-any-city-widget.php:779 includes/WIYCW-admin.php:218
 #: includes/WIYCW-block.php:35
 msgid "Border color"
 msgstr ""
 
-#: weather-in-any-city-widget.php:770 includes/WIYCW-admin.php:223
+#: weather-in-any-city-widget.php:794 includes/WIYCW-admin.php:223
 #: includes/WIYCW-block.php:61
 msgid "Shadow"
+msgstr ""
+
+#. translators: %s: eltiempoen.com or weatherin.org
+#: weather-in-any-city-widget.php:849
+#, php-format
+msgid "Show the logo of %s"
 msgstr ""
 
 #: includes/WIYCW-admin.php:27 includes/WIYCW-admin.php:50

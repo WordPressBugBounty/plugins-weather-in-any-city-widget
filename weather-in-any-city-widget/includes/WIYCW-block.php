@@ -16,7 +16,7 @@ function WIYCW_block_attributes(){
 		'description' => 'on', 'feels_like' => 'on', 'hourly' => 'on', 'unit_switch' => 'on', 'updated' => 'off', 'animation' => 'on',
 		'icon' => 'on', 'temp' => 'on', 'rainChance' => 'on', 'rain' => 'off', 'wind' => 'off',
 		'backgroundColor' => '#ffffff', 'textColor' => '#000000', 'borderColor' => '#ffffff', 'fontSize' => '15',
-		'iconsColor' => 'dark', 'weatherIconsColor' => 'color', 'shadow' => 'off'
+		'iconsColor' => 'dark', 'weatherIconsColor' => 'color', 'shadow' => 'off', 'credit_link' => 'on'
 	);
 	$attributes = array();
 	foreach($defaults as $name => $default){
@@ -59,6 +59,7 @@ function WIYCW_block_words(){
 		'Rain probability' => __('Rain probability', 'weather-in-any-city-widget'),
 		'Search for a city to show its weather.' => __('Search for a city to show its weather.', 'weather-in-any-city-widget'),
 		'Shadow' => __('Shadow', 'weather-in-any-city-widget'),
+		'Show the logo' => WIYCW_credit_label(),
 		'Show current conditions' => __('Show current conditions', 'weather-in-any-city-widget'),
 		'Sunrise' => __('Sunrise', 'weather-in-any-city-widget'),
 		'Sunset' => __('Sunset', 'weather-in-any-city-widget'),
