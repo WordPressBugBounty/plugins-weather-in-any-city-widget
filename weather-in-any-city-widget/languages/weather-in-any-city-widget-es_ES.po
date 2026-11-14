@@ -378,9 +378,6 @@ msgstr "Cubierto"
 msgid "Design"
 msgstr "Diseño"
 
-msgid "Sky card (new)"
-msgstr "Tarjeta de cielo (nuevo)"
-
 msgid "Classic"
 msgstr "Clásico"
 
@@ -447,9 +444,6 @@ msgstr "Copiar"
 msgid "Copied"
 msgstr "Copiado"
 
-msgid "Every widget option is also a shortcode attribute: the plugin page lists them all."
-msgstr "Cada opción del widget es también un atributo del shortcode: la página del plugin los enumera todos."
-
 msgid "The weather service is not available for this site."
 msgstr "El servicio del tiempo no está disponible para este sitio."
 
@@ -473,3 +467,10 @@ msgstr "Este sitio no ha respondido a la petición del widget (admin-ajax.php)."
 
 msgid "(Only site editors can see this.)"
 msgstr "(Esto solo lo ven los editores del sitio.)"
+
+msgid "Preview"
+msgstr "Vista previa"
+
+#, php-format
+msgid "Shown at %d%% of its size so that it fits here: on your site it will look bigger."
+msgstr "Se muestra al %d %% de su tamaño para que quepa aquí: en tu web se verá más grande."

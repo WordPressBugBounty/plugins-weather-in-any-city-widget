@@ -379,9 +379,10 @@
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
+/* three facts (humidity, wind and pressure, those of a new widget) make one line from a card of about 290 px */
 .WIYCW-card-facts{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(5.4em, 1fr));
 	gap: 0.6em 0.5em;
 	padding: 0.85em 1em;
 	border-bottom: 1px solid #edf1f5;
@@ -419,7 +420,7 @@
 .WIYCW-card-hours{
 	/* as many hours as fit, sharing the width; the rest are not shown (no scroll bar) */
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(3.3em, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(3.3em, 1fr)); /* auto-fit: fewer hours than room share the width */
 	grid-template-rows: auto;
 	grid-auto-rows: 0;
 	padding: 0.7em 0.6em;
@@ -486,14 +487,28 @@
 	white-space: nowrap;
 }
 
+/* the chance and the litres, centred in their column and with the air on their left that the minimum leaves on
+   its right (it is right-aligned): the same space on both sides */
 .WIYCW-day-wet{
 	display: flex;
 	flex: 0 0 3.2em;
 	flex-direction: column;
+	align-items: center;
+	margin-left: 0.85em;
 	color: #6b7b8e;
 	font-size: 0.7em;
 	line-height: 1.25;
 	white-space: nowrap;
+}
+
+/* a dry day: 0% and 0 mm, there but in the background */
+.WIYCW-day-wet .is-none{
+	color: #b3bdc8;
+}
+
+/* without the icons the name, which already has its own air, goes before it */
+.WIYCW-day-name + .WIYCW-day-wet{
+	margin-left: 0;
 }
 
 .WIYCW-day-min,
@@ -532,10 +547,42 @@
 }
 
 .WIYCW-day-wind{
+	display: flex;
 	flex: 0 0 auto;
+	align-items: center;
+	gap: 4px;
 	color: #62748a;
 	font-size: 0.72em;
 	white-space: nowrap;
+}
+
+.WIYCW-day-arrow{
+	flex-shrink: 0;
+	opacity: 0.6;
+}
+
+/* the card without the conditions of now: no sky, the name of the place on a plain line over the rest */
+.WIYCW-card-plain .WIYCW-card-head{
+	padding: 0.85em 1em 0.75em;
+	border-bottom: 1px solid #edf1f5;
+}
+
+.WIYCW-card-plain .WIYCW-card-title{
+	color: #1f2d3a;
+	text-shadow: none;
+}
+
+.WIYCW-card-plain .WIYCW-units{
+	background: #edf1f5;
+}
+
+.WIYCW-wrapper.WIYCW-design-card .WIYCW-card-plain .WIYCW-units button.WIYCW-units-btn{
+	color: #455a6e;
+}
+
+.WIYCW-wrapper.WIYCW-design-card .WIYCW-card-plain .WIYCW-units button.WIYCW-units-btn[aria-pressed="true"]{
+	background: #fff;
+	color: #004f78;
 }
 
 .WIYCW-card-updated{
@@ -647,7 +694,7 @@
 }
 
 @container (min-width: 540px){
-	.WIYCW-design-card[data-layout="horizontal"] .WIYCW-content{
+	.WIYCW-design-card[data-layout="horizontal"] .WIYCW-content:not(.WIYCW-no-sky){
 		display: grid;
 		grid-template-columns: minmax(230px, 40%) minmax(0, 1fr);
 		grid-auto-rows: min-content;

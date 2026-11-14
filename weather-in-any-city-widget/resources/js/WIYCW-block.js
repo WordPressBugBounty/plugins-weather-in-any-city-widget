@@ -128,6 +128,15 @@
 		var card = a.design === 'card';
 		var blockProps = editor.useBlockProps ? editor.useBlockProps() : {};
 		var holder = usePainter();
+		// a new block (no city yet): humidity, wind and pressure, one line of the card. Written into the block, not as
+		// defaults: the blocks already saved do not store their defaults, and changing them would change those blocks
+		if (useEffect) {
+			useEffect(function () {
+				if (!props.attributes.cityID) {
+					props.setAttributes({now_pressure: 'on', now_sunrise: 'off'});
+				}
+			}, []);
+		}
 
 		var general = el(components.PanelBody, {title: __('General', 'weather-in-any-city-widget'), initialOpen: true},
 			el(CitySearch, {
@@ -144,8 +153,12 @@
 				onChange: function (value) { props.setAttributes({title: value}); }
 			}),
 			select(props, 'design', __('Design', 'weather-in-any-city-widget'), [
-				{value: 'card', label: __('Sky card (new)', 'weather-in-any-city-widget')},
+				{value: 'card', label: __('Sky card', 'weather-in-any-city-widget')},
 				{value: 'classic', label: __('Classic', 'weather-in-any-city-widget')}
+			]),
+			select(props, 'layout', __('Layout', 'weather-in-any-city-widget'), [
+				{value: 'vertical', label: __('Vertical', 'weather-in-any-city-widget')},
+				{value: 'horizontal', label: __('Horizontal', 'weather-in-any-city-widget')}
 			]),
 			select(props, 'units', __('Units', 'weather-in-any-city-widget'), [
 				{value: 'c', label: __('Celsius', 'weather-in-any-city-widget')},
@@ -179,10 +192,6 @@
 				max: 14,
 				onChange: function (value) { props.setAttributes({days: String(value || 0)}); }
 			}),
-			select(props, 'layout', __('Layout', 'weather-in-any-city-widget'), [
-				{value: 'vertical', label: __('Vertical', 'weather-in-any-city-widget')},
-				{value: 'horizontal', label: __('Horizontal', 'weather-in-any-city-widget')}
-			]),
 			card ? toggle(props, 'hourly', __('Hourly forecast', 'weather-in-any-city-widget')) : null,
 			toggle(props, 'icon', __('Icon', 'weather-in-any-city-widget')),
 			toggle(props, 'temp', __('Temperature', 'weather-in-any-city-widget')),

@@ -4,7 +4,7 @@ Tags: weather, weather widget, weather forecast, tiempo, clima
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,6 +112,12 @@ Yes. Add as many blocks, widgets or shortcodes as you like, each with its own ci
 
 Your site asks the service about once every 30 minutes per city and keeps the answer (after a failed request it tries again a few minutes later). When it has it, the data is written into the page and the widget needs no extra request. If the service cannot be reached, the last good data is shown.
 
+= Is there a limit on requests? =
+
+Yes. The weather service answers each website up to 10 requests a minute, and each server up to 120 a minute (the sites of a shared hosting share that one). You will not reach it in normal use: the plugin keeps the forecast of each city on your site for a while and asks the service at most 8 times a minute, however many visitors or widgets you have. If it ever reaches the limit, the widget shows the last forecast it saved and asks again a little later (usually within a minute).
+
+The service is free for everyone thanks to these limits. A site that abuses it, for example by calling it outside the plugin, by automated requests or by trying to get around the limits, may be limited or blocked.
+
 = Is it translated into my language? =
 
 It comes in English and Spanish. You can help with other languages at translate.wordpress.org.
@@ -138,6 +144,15 @@ Privacy policy: https://weatherin.org/privacy-policy (English) and https://eltie
 5. The classic design, with your own colors, next to the sky card.
 
 == Changelog ==
+
+= 2.0.3 =
+* New: Settings > Weather Widget Pro writes the shortcode with every option of the widget, with a live preview.
+* Improved: the widget form shows only the options of the chosen design, and the layout goes with the design (in the block too), since it changes the whole widget.
+* Improved: the sky card shows where the wind blows, now and in the daily forecast.
+* Improved: the columns of the daily forecast of the sky card keep the same distance between them, and a column switched off leaves no gap.
+* Improved: in the sky card, a day without rain shows 0% and 0 mm, toned down, instead of a blank.
+* Improved: a new widget or block shows humidity, wind and pressure, which fit on one line of the sky card. Saved widgets and blocks keep theirs.
+* Fixed: a sky card without the current conditions no longer leaves an empty sky; the name of the place goes on a plain line.
 
 = 2.0.2 =
 * Fixed: in Appearance > Widgets (block-based screen), the design and the new options of a widget were not saved.

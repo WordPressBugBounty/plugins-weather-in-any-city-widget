@@ -443,10 +443,14 @@
 
 	// ---- the card design ----
 
-	function fact(widget, iconFile, label, value) {
+	// a fact of now: its icon, its label and its value; rotate: the degrees of the arrow of the wind (where it blows to)
+	function fact(widget, iconFile, label, value, rotate) {
 		var item = el('div', 'WIYCW-fact');
 		var icon = image(widget.dataset.path + '/resources/icons/ui-icons/' + iconFile, '', 16, 'WIYCW-fact-icon');
 		icon.setAttribute('aria-hidden', 'true');
+		if (isNumber(rotate)) {
+			icon.style.transform = 'rotate(' + rotate + 'deg)';
+		}
 		item.appendChild(icon);
 		var text = el('div', 'WIYCW-fact-text');
 		text.appendChild(el('span', 'WIYCW-fact-label', label));
@@ -462,10 +466,15 @@
 		var icons = set.path + '/resources/icons/weather-icons/';
 		var fragment = document.createDocumentFragment();
 
-		// the sky: its colour and its movement tell the weather; the light, the moment of the day
+		// the sky: its colour and its movement tell the weather; the light, the moment of the day. Without the conditions
+		// of now there is nothing to put on it: the name of the place (and the units) go on a plain line
+		var withNow = set.today !== 'off';
+		content.classList.toggle('WIYCW-no-sky', !withNow);
 		var look = sceneOf(now);
-		var sky = el('section', 'WIYCW-skycard WIYCW-sky-' + look.scene + (look.light !== 'day' ? ' WIYCW-is-' + look.light : ''));
-		if (set.animation !== 'off') {
+		var sky = withNow
+			? el('section', 'WIYCW-skycard WIYCW-sky-' + look.scene + (look.light !== 'day' ? ' WIYCW-is-' + look.light : ''))
+			: el('div', 'WIYCW-card-plain');
+		if (withNow && set.animation !== 'off') {
 			var fx = el('i', 'WIYCW-skyfx');
 			fx.setAttribute('aria-hidden', 'true');
 			fx.appendChild(el('i', 'WIYCW-skydeck'));
@@ -490,6 +499,9 @@
 			head.appendChild(toggle);
 		}
 		sky.appendChild(head);
+		if (!withNow) {
+			fragment.appendChild(sky);
+		}
 
 		var body = el('div', 'WIYCW-skybody WIYCW-card-body');
 		var text = condition(now);
@@ -517,8 +529,10 @@
 				body.appendChild(el('div', 'WIYCW-card-range', capitalize(t('today', 'today')) + ' ' + temp(today.temp_max, units) + ' / ' + temp(today.temp_min, units)));
 			}
 		}
-		sky.appendChild(body);
-		fragment.appendChild(sky);
+		if (withNow) {
+			sky.appendChild(body);
+			fragment.appendChild(sky);
+		}
 
 		if (set.today !== 'off') {
 			var facts = el('div', 'WIYCW-card-facts');
@@ -527,7 +541,7 @@
 			}
 			if (set.nowwind === 'on' && isNumber(now.wind_speed)) {
 				var gust = isNumber(now.gust) && now.gust >= now.wind_speed + 10 ? ' (' + speed(now.gust, units) + ')' : '';
-				facts.appendChild(fact(widget, 'wind.svg', t('wind', 'Wind'), speed(now.wind_speed, units) + gust));
+				facts.appendChild(fact(widget, isNumber(now.wind_deg) ? 'arrow.svg' : 'wind.svg', t('wind', 'Wind'), speed(now.wind_speed, units) + gust, now.wind_deg));
 			}
 			if (set.nowpressure === 'on' && isNumber(now.pressure)) {
 				facts.appendChild(fact(widget, 'pressure.svg', t('pressure', 'Pressure'), now.pressure + ' hPa'));
@@ -585,14 +599,20 @@
 				if (set.forecasticon !== 'off') {
 					row.appendChild(modernImage(icons + 'modern/', day, condition(day), 30, 'WIYCW-day-icon'));
 				}
+				// the rain has its column only when it is shown (empty on a dry day, so that the columns line up): a
+				// column switched off leaves no gap
 				var wet = el('div', 'WIYCW-day-wet');
-				if (set.rainchance !== 'off' && isNumber(day.pop) && day.pop >= 0.05) {
-					wet.appendChild(el('span', 'WIYCW-day-pop' + (day.pop >= 0.5 ? ' is-wet' : ''), Math.round(day.pop * 100) + '%'));
+				// a dry day says so (0% and 0 mm, toned down) rather than leaving a blank
+				if (set.rainchance !== 'off' && isNumber(day.pop)) {
+					wet.appendChild(el('span', 'WIYCW-day-pop' + (day.pop >= 0.5 ? ' is-wet' : day.pop < 0.05 ? ' is-none' : ''), Math.round(day.pop * 100) + '%'));
 				}
-				if (set.rain === 'on' && isNumber(day.rain) && day.rain >= 0.1) {
-					wet.appendChild(el('span', 'WIYCW-day-rain', volumeShort(day.rain, units)));
+				if (set.rain === 'on') {
+					var litres = isNumber(day.rain) && day.rain >= 0.1;
+					wet.appendChild(el('span', 'WIYCW-day-rain' + (litres ? '' : ' is-none'), volumeShort(litres ? day.rain : 0, units)));
 				}
-				row.appendChild(wet);
+				if (set.rainchance !== 'off' || set.rain === 'on') {
+					row.appendChild(wet);
+				}
 				if (set.temp !== 'off' && isNumber(day.temp_min) && isNumber(day.temp_max)) {
 					row.appendChild(el('div', 'WIYCW-day-min', temp(day.temp_min, units)));
 					var track = el('div', 'WIYCW-day-track');
@@ -605,7 +625,15 @@
 					row.appendChild(el('div', 'WIYCW-day-max', temp(day.temp_max, units)));
 				}
 				if (set.wind === 'on' && isNumber(day.wind_speed)) {
-					row.appendChild(el('div', 'WIYCW-day-wind', speed(day.wind_speed, units)));
+					var dayWind = el('div', 'WIYCW-day-wind');
+					if (isNumber(day.wind_deg)) {
+						var dayArrow = image(set.path + '/resources/icons/ui-icons/arrow.svg', '', 10, 'WIYCW-day-arrow');
+						dayArrow.setAttribute('aria-hidden', 'true');
+						dayArrow.style.transform = 'rotate(' + day.wind_deg + 'deg)';
+						dayWind.appendChild(dayArrow);
+					}
+					dayWind.appendChild(document.createTextNode(speed(day.wind_speed, units)));
+					row.appendChild(dayWind);
 				}
 				list.appendChild(row);
 			});

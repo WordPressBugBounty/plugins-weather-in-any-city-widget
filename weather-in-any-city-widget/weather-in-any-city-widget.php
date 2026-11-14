@@ -3,7 +3,7 @@
  * Plugin Name: Weather Widget Pro
  * Plugin URI: https://weatherin.org
  * Description: Weather Widget Pro provides a complete weather forecast for any location around the world.
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: El tiempo
  * Author URI: https://eltiempoen.com
  * Text Domain: weather-in-any-city-widget
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) or die( 'ABSPATH not defined' );
 
-define ('WIYCW_VERSION', '2.0.2');
+define ('WIYCW_VERSION', '2.0.3');
 // The weather service, on the standard HTTPS port (the old eltiempoen.com:9090 is not reachable any more)
 define ('WIYCW_API', 'https://eltiempoen.com/api/weather');
 define ('WIYCW_DEF_PLUGIN', 'weather-in-any-city-widget');
@@ -228,6 +228,8 @@ class WIYCW_widget extends WP_Widget
     	$instance = WIYCW_default_values($instance);
     	if ($is_new) {
     		$instance['design'] = 'card';
+    		// as in the block: humidity, wind and pressure make one line of the card (saved widgets keep theirs)
+    		$instance['now_cloudiness'] = 'off';
     	}
     	$title = $instance['title'];
     	$cityID = $instance['cityID'];
@@ -372,48 +374,62 @@ class WIYCW_widget extends WP_Widget
 					<p class="form-line">
 						<label for="<?php echo esc_attr($this->get_field_id('design')); ?>"><?php echo esc_html__('Design', 'weather-in-any-city-widget'); ?></label>
 						<select class="widefat" name="<?php echo esc_attr($this->get_field_name('design')); ?>" id="<?php echo esc_attr($this->get_field_id('design')); ?>">
-							<option value="card" <?php selected($instance['design'], 'card'); ?>><?php echo esc_html__('Sky card (new)', 'weather-in-any-city-widget'); ?></option>
+							<option value="card" <?php selected($instance['design'], 'card'); ?>><?php echo esc_html__('Sky card', 'weather-in-any-city-widget'); ?></option>
 							<option value="classic" <?php selected($instance['design'], 'classic'); ?>><?php echo esc_html__('Classic', 'weather-in-any-city-widget'); ?></option>
 						</select>
 					</p>
-					<p style="font-size: 0.8rem;font-style: italic;"><?php echo esc_html__('The sky card changes its sky with the weather. These options only apply to it:', 'weather-in-any-city-widget'); ?></p>
 					<p class="form-line">
+						<label for="<?php echo $this->get_field_id('layout'); ?>"><?php echo __('Layout', 'weather-in-any-city-widget')?></label>		
+
+						<select class="widefat" name="<?php echo $this->get_field_name('layout'); ?>" id="<?php echo $this->get_field_id('layout'); ?>">
+	                        <option value="vertical" <?php if ($layout == "vertical") {
+	                            echo 'selected';
+	                        } ?>><?php echo __('Vertical', 'weather-in-any-city-widget')?>
+	                        </option>
+	                        <option value="horizontal" <?php if ($layout == "horizontal") {
+	                            echo 'selected';
+	                        } ?>><?php echo __('Horizontal', 'weather-in-any-city-widget')?>
+	                        </option>
+		                </select>
+					</p>
+					<p class="wiycw-only-card" style="font-size: 0.8rem;font-style: italic;"><?php echo esc_html__('The sky card changes its sky with the weather. These options only apply to it:', 'weather-in-any-city-widget'); ?></p>
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['description'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('description')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('description')); ?>" />
 						<label for="<?php echo esc_attr($this->get_field_id('description')); ?>"><?php echo esc_html__('Weather in words', 'weather-in-any-city-widget'); ?></label>
 					</p>
-					<p class="form-line">
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['feels_like'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('feels_like')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('feels_like')); ?>" />
 						<label for="<?php echo esc_attr($this->get_field_id('feels_like')); ?>"><?php echo esc_html__('Feels like', 'weather-in-any-city-widget'); ?></label>
 					</p>
-					<p class="form-line">
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['now_visibility'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('now_visibility')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('now_visibility')); ?>" />
 						<label for="<?php echo esc_attr($this->get_field_id('now_visibility')); ?>"><?php echo esc_html__('Visibility', 'weather-in-any-city-widget'); ?></label>
 					</p>
-					<p class="form-line">
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['hourly'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('hourly')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('hourly')); ?>" />
 						<label for="<?php echo esc_attr($this->get_field_id('hourly')); ?>"><?php echo esc_html__('Hourly forecast', 'weather-in-any-city-widget'); ?></label>
 					</p>
-					<p class="form-line">
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['unit_switch'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('unit_switch')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('unit_switch')); ?>" />
 						<label for="<?php echo esc_attr($this->get_field_id('unit_switch')); ?>"><?php echo esc_html__('Let visitors switch between °C and °F', 'weather-in-any-city-widget'); ?></label>
 					</p>
-					<p class="form-line">
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['updated'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('updated')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('updated')); ?>" />
 						<label for="<?php echo esc_attr($this->get_field_id('updated')); ?>"><?php echo esc_html__('Time of the last update', 'weather-in-any-city-widget'); ?></label>
 					</p>
-					<p class="form-line">
+					<p class="form-line wiycw-only-card">
 						<input class="checkbox" type="checkbox" <?php checked($instance['animation'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('animation')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('animation')); ?>" />
@@ -616,21 +632,6 @@ class WIYCW_widget extends WP_Widget
 					</p>
 
 					
-					<p class="form-line">
-						<label for="<?php echo $this->get_field_id('layout'); ?>"><?php echo __('Layout', 'weather-in-any-city-widget')?></label>		
-
-						<select class="widefat" name="<?php echo $this->get_field_name('layout'); ?>" id="<?php echo $this->get_field_id('layout'); ?>">
-	                        <option value="vertical" <?php if ($layout == "vertical") {
-	                            echo 'selected';
-	                        } ?>><?php echo __('Vertical', 'weather-in-any-city-widget')?>
-	                        </option>
-	                        <option value="horizontal" <?php if ($layout == "horizontal") {
-	                            echo 'selected';
-	                        } ?>><?php echo __('Horizontal', 'weather-in-any-city-widget')?>
-	                        </option>
-		                </select>
-					</p>
-
 
 					<p class="form-line">
 						<input type="checkbox" 
@@ -694,7 +695,7 @@ class WIYCW_widget extends WP_Widget
 		                        value="<?php echo esc_attr($fontSize); ?>"/>
 					</p>
 
-					<p class="form-line">
+					<p class="form-line wiycw-only-classic">
 
 						<label for="<?php echo $this->get_field_id('weatherIconsColor'); ?>"><?php echo __('Weather icons color', 'weather-in-any-city-widget')?></label>		
 
@@ -716,7 +717,7 @@ class WIYCW_widget extends WP_Widget
 
 				
 
-					<p class="form-line">
+					<p class="form-line wiycw-only-classic">
 
 						<label for="<?php echo $this->get_field_id('iconsColor'); ?>"><?php echo __('UI icons color', 'weather-in-any-city-widget')?></label>		
 
@@ -734,7 +735,7 @@ class WIYCW_widget extends WP_Widget
 
 					
 
-					<p class="form-line">
+					<p class="form-line wiycw-only-classic">
 						<label for="<?php echo $this->get_field_id('textColor'); ?>"><?php echo __('Font color', 'weather-in-any-city-widget')?></label>
 						 <input type="color" id="<?php echo $this->get_field_id('textColor'); ?>"
 		                        name="<?php echo $this->get_field_name('textColor'); ?>"
@@ -742,7 +743,7 @@ class WIYCW_widget extends WP_Widget
 					</p>
 
 					
-					<p class="form-line">
+					<p class="form-line wiycw-only-classic">
 						<label for="<?php echo $this->get_field_id('backgroundColor'); ?>"><?php echo __('Background color', 'weather-in-any-city-widget')?></label>
 						 <input type="color" id="<?php echo $this->get_field_id('backgroundColor'); ?>"
 		                        name="<?php echo $this->get_field_name('backgroundColor'); ?>"
@@ -750,14 +751,14 @@ class WIYCW_widget extends WP_Widget
 					</p>
 
 
-					<p class="form-line">
+					<p class="form-line wiycw-only-classic">
 						<label for="<?php echo $this->get_field_id('borderColor'); ?>"><?php echo __('Border color', 'weather-in-any-city-widget')?></label>
 						 <input type="color" id="<?php echo $this->get_field_id('borderColor'); ?>"
 		                        name="<?php echo $this->get_field_name('borderColor'); ?>"
 		                        value="<?php echo esc_attr($borderColor); ?>"/>
 					</p>
 
-					<p class="form-line">
+					<p class="form-line wiycw-only-classic">
 						<input class="checkbox" type="checkbox" 
 							<?php if ($shadow == "on") {
 	                            echo 'checked';
@@ -792,6 +793,10 @@ add_action('widgets_init', 'WIYCW_widget');
 
 function WIYCW_admin_scripts( $hook ) {
     wp_enqueue_style('WIYCW-autoComplete-style', plugin_dir_url(__FILE__). 'resources/css/WIYCW-autoComplete.css', array(), WIYCW_VERSION);
+   	// the form shows the options of the chosen design only (a browser without :has() shows them all, as before)
+   	wp_add_inline_style('WIYCW-autoComplete-style',
+   		'.WIYCW-form:has(select[id$="-design"] option[value="card"]:checked) .wiycw-only-classic,'
+   		. '.WIYCW-form:has(select[id$="-design"] option[value="classic"]:checked) .wiycw-only-card{display:none}');
     wp_register_script('WIYCW-admin', plugin_dir_url(__FILE__). 'resources/js/WIYCW-admin-widget.js', array('jquery'), WIYCW_VERSION, true);
    	wp_register_script('WIYCW-autoComplete', plugin_dir_url(__FILE__). 'resources/js/WIYCW-autoComplete.min.js', array(), WIYCW_VERSION, true);
    	wp_enqueue_script('WIYCW-admin');
