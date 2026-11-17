@@ -8,7 +8,6 @@
 			        var httpRequest = new XMLHttpRequest();
 			        httpRequest.onreadystatechange = function() {
 			            if (httpRequest.readyState === 4) {
-			                // anything but a JSON object (an error page, an empty answer) is a failure: the caller tries its other source
 			                var data = null;
 			                if (httpRequest.status === 200 && httpRequest.responseText) {
 			                    try {
@@ -66,7 +65,7 @@
 				}
 
 
-				let WIYCW_widgets = document.querySelectorAll(".WIYCW-wrapper")
+				let WIYCW_widgets = document.querySelectorAll(".WIYCW-wrapper:not([data-f])")
 
 
 				WIYCW_widgets.forEach(widget =>{
@@ -387,13 +386,11 @@
 
 
 						}, function(){
-							// no answer, an HTTP error or something that is not JSON: the other source, like an error in the answer
 							error();
 						})
 					}
 
 					getWeatherData(widget.dataset.url+"?action="+widget.dataset.action+"&nonce="+widget.dataset.nonce+"&id="+encodeURIComponent(widget.dataset.cityid), function(){
-						// the weather comes only from the site: the visitor's browser never calls the service
 						console.log('Weather Widget Pro: no weather data from the site')
 					})
 

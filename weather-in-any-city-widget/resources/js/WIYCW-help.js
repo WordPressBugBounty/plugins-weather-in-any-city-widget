@@ -1,5 +1,3 @@
-/* Weather Widget Pro: the shortcode writer of the help page (Settings › Weather Widget Pro): every option of the
-   widget, the shortcode with the attributes that differ from what the shortcode does by itself, and a preview. */
 (function () {
 	'use strict';
 
@@ -31,16 +29,33 @@
 	}
 
 	function attribute(text) {
-		return String(text).replace(/["\[\]]/g, '');
+		return String(text)
+			.replace(/&(?=#?[a-z0-9]+;)/gi, '&#38;')
+			.replace(/"/g, '&quot;')
+			.replace(/\[/g, '&#91;')
+			.replace(/\]/g, '&#93;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/\\/g, '&#92;');
 	}
 
-	// the attributes of the shortcode: the city and the design always, the rest only when they differ from the default
+	function fontSize(value) {
+		var size = parseInt(value, 10);
+		if (isNaN(size)) {
+			return String(defaults.fontsize || '15');
+		}
+		return String(Math.max(11, Math.min(22, size)));
+	}
+
 	function attributes() {
 		var design = '';
 		var all = {cityid: city.id, city: city.city};
 		fields().forEach(function (field) {
 			var name = field.getAttribute('data-attribute');
 			var value = valueOf(field);
+			if (name === 'fontsize') {
+				value = fontSize(value);
+			}
 			if (name === 'design') {
 				design = value;
 			}
@@ -67,7 +82,6 @@
 		return used;
 	}
 
-	// each design, its options; without the conditions of now or without days, their parts go
 	function refresh() {
 		var design = (root.querySelector('[data-attribute="design"]') || {}).value;
 		var today = root.querySelector('[data-attribute="today"]');
@@ -83,14 +97,17 @@
 	function write() {
 		refresh();
 		var used = attributes();
-		output.value = '[weather_pro ' + Object.keys(used).map(function (name) {
-			return name + '="' + attribute(used[name]) + '"';
+		var written = {};
+		Object.keys(used).forEach(function (name) {
+			written[name] = attribute(used[name]);
+		});
+		output.value = '[weather_pro ' + Object.keys(written).map(function (name) {
+			return name + '="' + written[name] + '"';
 		}).join(' ') + ']';
 		clearTimeout(previewTimer);
-		previewTimer = setTimeout(function () { show(used); }, 250);
+		previewTimer = setTimeout(function () { show(written); }, 250);
 	}
 
-	// the preview: the widget of these attributes, printed by the site and painted by its script
 	function show(used) {
 		if (!preview || !config.ajaxUrl) {
 			return;
@@ -109,7 +126,6 @@
 				if (asked !== previewAsked) {
 					return;
 				}
-				// a horizontal widget is drawn at the width it is horizontal at, and scaled down to the column (fit)
 				var wide = used.layout === 'horizontal' || (!('layout' in used) && defaults.layout === 'horizontal');
 				preview.innerHTML = '<div class="wiycw-gen-fit"><div class="wiycw-gen-stage"' + (wide ? ' style="width:' + WIDE + 'px"' : '') + '>' + html + '</div></div>';
 				preview.classList.remove('is-loading');
@@ -121,7 +137,6 @@
 			.catch(function () { preview.classList.remove('is-loading'); });
 	}
 
-	// the horizontal preview, scaled to the room of the column; its box takes the height it is drawn at
 	var WIDE = 780;
 	function fit() {
 		var box = preview && preview.querySelector('.wiycw-gen-fit');
@@ -133,7 +148,6 @@
 		var scale = stage.style.width ? Math.min(1, room / WIDE) : 1;
 		stage.style.transform = scale < 1 ? 'scale(' + scale + ')' : '';
 		box.style.height = scale < 1 ? Math.ceil(stage.offsetHeight * scale) + 'px' : '';
-		// say it is smaller than on the site
 		var note = document.getElementById('wiycw-scaled');
 		if (note) {
 			note.hidden = !(scale < 1);
@@ -143,7 +157,6 @@
 	}
 
 	if (window.ResizeObserver && preview) {
-		// the widget paints itself when its data comes, and the column changes with the window
 		new ResizeObserver(fit).observe(preview);
 		new MutationObserver(function () { window.requestAnimationFrame(fit); }).observe(preview, {childList: true, subtree: true});
 	}
@@ -203,14 +216,23 @@
 					setTimeout(function () { copied.hidden = true; }, 2000);
 				}
 			};
-			if (navigator.clipboard && navigator.clipboard.writeText) {
-				navigator.clipboard.writeText(output.value).then(done, function () {
-					document.execCommand('copy');
+			var byHand = function () {
+				var ok = false;
+				try {
+					ok = document.execCommand('copy');
+				} catch (e) {
+					ok = false;
+				}
+				output.focus();
+				output.select();
+				if (ok) {
 					done();
-				});
+				}
+			};
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(output.value).then(done, byHand);
 			} else {
-				document.execCommand('copy');
-				done();
+				byHand();
 			}
 		});
 	}

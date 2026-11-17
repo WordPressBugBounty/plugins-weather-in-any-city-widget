@@ -1,7 +1,3 @@
-/*
- * Weather Widget Pro: the block of the editor. The preview is the real widget, printed by the server (the same HTML
- * as the widget and the shortcode) and painted by WIYCW-widget2.js, which notices it when it is put on the page.
- */
 (function (wp) {
 	'use strict';
 
@@ -14,8 +10,6 @@
 	var useRef = wp.element.useRef;
 	var useEffect = wp.element.useEffect;
 
-	// The preview arrives from the server after the block is drawn, and the editor may draw it inside a frame with its
-	// own copy of the script of the widget: the widget is started in the window it is in, whenever its HTML changes
 	function usePainter() {
 		var holder = useRef ? useRef(null) : null;
 		if (useEffect) {
@@ -40,15 +34,19 @@
 		return holder;
 	}
 	var config = window.WIYCW_block || {};
-	// the words come from the plugin (PHP), so its translations serve the block too
 	var __ = function (text) {
 		return (config.i18n && config.i18n[text]) || text;
 	};
+	function themes() {
+		var names = (config.i18n && config.i18n.themes) || {};
+		return ['sky', 'dark', 'full', 'flat', 'blend'].map(function (key) {
+			return {value: key, label: typeof names[key] === 'string' ? names[key] : key};
+		});
+	}
 	var components = wp.components;
 	var editor = wp.blockEditor || wp.editor;
 	var ServerSideRender = wp.serverSideRender;
 
-	// the city search of the weather service: the same list the widget form uses
 	function CitySearch(props) {
 		var state = useState('');
 		var query = state[0];
@@ -128,8 +126,6 @@
 		var card = a.design === 'card';
 		var blockProps = editor.useBlockProps ? editor.useBlockProps() : {};
 		var holder = usePainter();
-		// a new block (no city yet): humidity, wind and pressure, one line of the card. Written into the block, not as
-		// defaults: the blocks already saved do not store their defaults, and changing them would change those blocks
 		if (useEffect) {
 			useEffect(function () {
 				if (!props.attributes.cityID) {
@@ -156,6 +152,7 @@
 				{value: 'card', label: __('Sky card', 'weather-in-any-city-widget')},
 				{value: 'classic', label: __('Classic', 'weather-in-any-city-widget')}
 			]),
+			card ? select(props, 'theme', __('Style', 'weather-in-any-city-widget'), themes()) : null,
 			select(props, 'layout', __('Layout', 'weather-in-any-city-widget'), [
 				{value: 'vertical', label: __('Vertical', 'weather-in-any-city-widget')},
 				{value: 'horizontal', label: __('Horizontal', 'weather-in-any-city-widget')}
@@ -181,7 +178,7 @@
 			toggle(props, 'now_pressure', __('Pressure', 'weather-in-any-city-widget')),
 			toggle(props, 'now_cloudiness', __('Cloudiness', 'weather-in-any-city-widget')),
 			card ? toggle(props, 'now_visibility', __('Visibility', 'weather-in-any-city-widget')) : null,
-			toggle(props, 'now_sunrise', __('Sunrise', 'weather-in-any-city-widget') + ' / ' + __('Sunset', 'weather-in-any-city-widget'))
+			toggle(props, 'now_sunrise', __('Sunrise / sunset', 'weather-in-any-city-widget'))
 		);
 
 		var forecast = el(components.PanelBody, {title: __('Forecast', 'weather-in-any-city-widget'), initialOpen: false},
@@ -217,6 +214,15 @@
 				el(components.ColorPalette, {value: a.backgroundColor, clearable: false, onChange: function (value) { props.setAttributes({backgroundColor: value || '#ffffff'}); }})),
 			card ? null : el(components.BaseControl, {label: __('Border color', 'weather-in-any-city-widget'), id: 'wiycw-border'},
 				el(components.ColorPalette, {value: a.borderColor, clearable: false, onChange: function (value) { props.setAttributes({borderColor: value || '#ffffff'}); }})),
+			card ? null : select(props, 'weatherIconsColor', __('Weather icons color', 'weather-in-any-city-widget'), [
+				{value: 'color', label: __('Color', 'weather-in-any-city-widget')},
+				{value: 'light', label: __('Light', 'weather-in-any-city-widget')},
+				{value: 'dark', label: __('Dark', 'weather-in-any-city-widget')}
+			]),
+			card ? null : select(props, 'iconsColor', __('UI icons color', 'weather-in-any-city-widget'), [
+				{value: 'light', label: __('Light', 'weather-in-any-city-widget')},
+				{value: 'dark', label: __('Dark', 'weather-in-any-city-widget')}
+			]),
 			card ? null : toggle(props, 'shadow', __('Shadow', 'weather-in-any-city-widget')),
 			toggle(props, 'credit_link', __('Show the logo', 'weather-in-any-city-widget'))
 		);
@@ -241,11 +247,10 @@
 	}
 
 	wp.blocks.registerBlockType('wiycw/weather', {
-		apiVersion: 2,
+		apiVersion: parseInt(config.apiVersion, 10) === 3 ? 3 : 2,
 		title: __('Weather Widget Pro', 'weather-in-any-city-widget'),
 		icon: 'cloud',
 		category: 'widgets',
-		// the same as the site registers: the editors of before WordPress 5.5 do not get them from it
 		attributes: Object.keys(config.defaults || {}).reduce(function (all, name) {
 			all[name] = {type: 'string', 'default': config.defaults[name]};
 			return all;

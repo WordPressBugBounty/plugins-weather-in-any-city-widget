@@ -1,14 +1,10 @@
 <?php
-/**
- * Weather Widget Pro: when the plugin is deleted, the weather it had saved goes with it. The settings of its widgets
- * stay: deleting the plugin and installing it again is a common way of fixing things, and it must not lose them.
- */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) or die( 'WP_UNINSTALL_PLUGIN not defined' );
 
 function WIYCW_uninstall_site(){
 	global $wpdb;
-	$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_wiycw%' OR option_name LIKE '\_transient\_timeout\_wiycw%'");
+	$wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_wiycw%' OR option_name LIKE '\_transient\_timeout\_wiycw%' OR option_name LIKE 'wiycw2\_lock\_%'");
 }
 
 if(is_multisite()){

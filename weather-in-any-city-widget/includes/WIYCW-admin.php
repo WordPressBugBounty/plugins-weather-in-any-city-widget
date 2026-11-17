@@ -1,9 +1,4 @@
 <?php
-/**
- * Weather Widget Pro: where to find it in the admin (since 2.0.0). A page under «Settings» that says how to add the
- * weather (block, widget or shortcode) and writes the shortcode of a city; a link to it in the list of plugins; and a
- * notice the first time, after activating.
- */
 
 defined( 'ABSPATH' ) or die( 'ABSPATH not defined' );
 
@@ -57,16 +52,13 @@ function WIYCW_help_assets($hook){
 	if($hook !== 'settings_page_wiycw'){
 		return;
 	}
-	// the widget itself, for the preview of the shortcode
 	WIYCW_enqueue(true);
 	wp_enqueue_script('WIYCW-help', WIYCW_DEF_BASEURL . '/resources/js/WIYCW-help.js', array('WIYCW-widget'), WIYCW_VERSION, true);
 	wp_localize_script('WIYCW-help', 'WIYCW_help', array(
 		'searchUrl' => WIYCW_API . '/wpsearch',
 		'ajaxUrl' => admin_url('admin-ajax.php'),
 		'nonce' => wp_create_nonce('wiycw_preview'),
-		/* translators: %d: how big the preview is drawn, in percent */
 		'scaled' => __('Shown at %d%% of its size so that it fits here: on your site it will look bigger.', 'weather-in-any-city-widget'),
-		// what the shortcode does when an attribute is not written (WIYCW_default_values): only the others are written
 		'defaults' => WIYCW_generator_defaults()
 	));
 }
@@ -120,13 +112,9 @@ function WIYCW_help_page(){
 		</div>
 		<style>
 			.wiycw-gen-card{max-width:1100px}
-			/* the options of the other design (and the parts of now or of the forecast when they are off): their flex
-			   display must not show them again */
 			.wiycw-gen [hidden]{display:none !important}
 			.wiycw-gen{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
 			@media (min-width:1100px){.wiycw-gen{grid-template-columns:minmax(0,1fr) minmax(0,520px)}.wiycw-gen-side{position:sticky;top:48px;align-self:start}}
-			/* a horizontal widget needs room to be horizontal (the card, 540 px of its own): it is drawn at its full width
-			   and scaled down to the column (WIYCW-help.js), so the preview stays in its place */
 			.wiycw-gen-fit{position:relative;overflow:hidden}
 			.wiycw-gen-stage{transform-origin:0 0}
 			.wiycw-gen-group{margin:0 0 16px;padding:8px 12px 12px;border:1px solid #dcdcde;border-radius:4px}
@@ -144,13 +132,7 @@ function WIYCW_help_page(){
 	<?php
 }
 
-/**
- * The options of the shortcode writer: every attribute of the shortcode, by the sections of the widget form. Each one:
- * attribute, label, type (check, select, text, number, color, city), its value when the page opens (start) and, for the
- * options of one design only, «only» (card or classic). Its default is the one of WIYCW_default_values (the shortcode).
- */
 function WIYCW_generator_fields(){
-	// the same words as the form of the widget (already translated)
 	$days = array('off' => __('Disable forecast', 'weather-in-any-city-widget'),
 		'1' => __('1 day', 'weather-in-any-city-widget'),
 		'2' => __('2 days', 'weather-in-any-city-widget'),
@@ -179,6 +161,8 @@ function WIYCW_generator_fields(){
 		__('Design', 'weather-in-any-city-widget') => array(
 			array('attribute' => 'design', 'label' => __('Design', 'weather-in-any-city-widget'), 'type' => 'select', 'start' => 'card',
 				'options' => array('card' => __('Sky card', 'weather-in-any-city-widget'), 'classic' => __('Classic', 'weather-in-any-city-widget'))),
+			array('attribute' => 'theme', 'label' => __('Style', 'weather-in-any-city-widget'), 'type' => 'select', 'start' => 'sky', 'only' => 'card',
+				'options' => WIYCW_themes()),
 			array('attribute' => 'layout', 'label' => __('Layout', 'weather-in-any-city-widget'), 'type' => 'select', 'start' => 'vertical',
 				'options' => array('vertical' => __('Vertical', 'weather-in-any-city-widget'), 'horizontal' => __('Horizontal', 'weather-in-any-city-widget'))),
 			array('type' => 'note', 'label' => __('The sky card changes its sky with the weather. These options only apply to it:', 'weather-in-any-city-widget'), 'only' => 'card'),
@@ -197,7 +181,6 @@ function WIYCW_generator_fields(){
 			$check('now_humidity', __('Humidity', 'weather-in-any-city-widget'), 'on', null, 'today'),
 			$check('now_wind', __('Wind', 'weather-in-any-city-widget'), 'on', null, 'today'),
 			$check('now_pressure', __('Pressure', 'weather-in-any-city-widget'), 'on', null, 'today'),
-			// off at first, as in the block: humidity, wind and pressure make one line of the card
 			$check('now_cloudiness', __('Cloudiness', 'weather-in-any-city-widget'), 'off', null, 'today'),
 			$check('now_sunrise', __('Sunrise / sunset', 'weather-in-any-city-widget'), 'off', null, 'today'),
 			array('attribute' => 'time_format', 'label' => __('Time format', 'weather-in-any-city-widget'), 'type' => 'select', 'start' => 'universal',
@@ -226,10 +209,9 @@ function WIYCW_generator_fields(){
 	);
 }
 
-// The value of every attribute when the shortcode does not write it (WIYCW_default_values with nothing)
 function WIYCW_generator_defaults(){
 	$instance = WIYCW_default_values(array());
-	$names = array('title' => 'title', 'units' => 'units', 'design' => 'design', 'layout' => 'layout', 'days' => 'days',
+	$names = array('title' => 'title', 'units' => 'units', 'design' => 'design', 'theme' => 'theme', 'layout' => 'layout', 'days' => 'days',
 		'time_format' => 'time_format', 'fontsize' => 'fontSize', 'textcolor' => 'textColor', 'backgroundcolor' => 'backgroundColor',
 		'bordercolor' => 'borderColor', 'weathericonscolor' => 'weatherIconsColor', 'iconscolor' => 'iconsColor', 'rainchance' => 'rainChance');
 	foreach(array('description', 'feels_like', 'now_visibility', 'hourly', 'unit_switch', 'updated', 'animation', 'today', 'now_icon', 'now_temp',
@@ -275,7 +257,6 @@ function WIYCW_generator_field($field){
 	echo '</div>';
 }
 
-// The preview of the shortcode writer: the widget of those attributes, as a page would print it
 function WIYCW_generator_preview(){
 	check_ajax_referer('wiycw_preview', 'nonce');
 	if(!current_user_can('manage_options')){

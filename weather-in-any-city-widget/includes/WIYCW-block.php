@@ -1,16 +1,11 @@
 <?php
-/**
- * Weather Widget Pro: the block of the editor (since 2.0.0). It prints the same HTML as the widget and the shortcode
- * (WIYCW_public), so the three look and work the same.
- */
 
 defined( 'ABSPATH' ) or die( 'ABSPATH not defined' );
 
-// The settings of the block: the same names as the widget, all as text («on» / «off» for the boxes)
 function WIYCW_block_attributes(){
 	$defaults = array(
 		'title' => '', 'cityID' => '', 'location' => '', 'city' => '', 'state' => '', 'country' => '', 'url_en' => '', 'url_es' => '',
-		'design' => 'card', 'units' => 'c', 'time_format' => 'universal', 'days' => '5', 'layout' => 'vertical',
+		'design' => 'card', 'theme' => 'sky', 'units' => 'c', 'time_format' => 'universal', 'days' => '5', 'layout' => 'vertical',
 		'today' => 'on', 'now_icon' => 'on', 'now_temp' => 'on', 'now_humidity' => 'on', 'now_wind' => 'on', 'now_pressure' => 'off',
 		'now_cloudiness' => 'off', 'now_sunrise' => 'on', 'now_visibility' => 'off',
 		'description' => 'on', 'feels_like' => 'on', 'hourly' => 'on', 'unit_switch' => 'on', 'updated' => 'off', 'animation' => 'on',
@@ -25,7 +20,6 @@ function WIYCW_block_attributes(){
 	return $attributes;
 }
 
-// The words of the block's settings, translated here for its script
 function WIYCW_block_words(){
 	return array(
 		'12 hours' => __('12 hours', 'weather-in-any-city-widget'),
@@ -36,8 +30,12 @@ function WIYCW_block_words(){
 		'Celsius' => __('Celsius', 'weather-in-any-city-widget'),
 		'City' => __('City', 'weather-in-any-city-widget'),
 		'Sky card' => __('Sky card', 'weather-in-any-city-widget'),
+		'Style' => __('Style', 'weather-in-any-city-widget'),
 		'Classic' => __('Classic', 'weather-in-any-city-widget'),
 		'Cloudiness' => __('Cloudiness', 'weather-in-any-city-widget'),
+		'Color' => __('Color', 'weather-in-any-city-widget'),
+		'Dark' => __('Dark', 'weather-in-any-city-widget'),
+		'Light' => __('Light', 'weather-in-any-city-widget'),
 		'Current conditions' => __('Current conditions', 'weather-in-any-city-widget'),
 		'Days' => __('Days', 'weather-in-any-city-widget'),
 		'Design' => __('Design', 'weather-in-any-city-widget'),
@@ -63,15 +61,19 @@ function WIYCW_block_words(){
 		'Show current conditions' => __('Show current conditions', 'weather-in-any-city-widget'),
 		'Sunrise' => __('Sunrise', 'weather-in-any-city-widget'),
 		'Sunset' => __('Sunset', 'weather-in-any-city-widget'),
+		'Sunrise / sunset' => __('Sunrise / sunset', 'weather-in-any-city-widget'),
 		'Temperature' => __('Temperature', 'weather-in-any-city-widget'),
 		'Time format' => __('Time format', 'weather-in-any-city-widget'),
 		'Time of the last update' => __('Time of the last update', 'weather-in-any-city-widget'),
 		'Title' => __('Title', 'weather-in-any-city-widget'),
+		'UI icons color' => __('UI icons color', 'weather-in-any-city-widget'),
 		'Units' => __('Units', 'weather-in-any-city-widget'),
 		'Vertical' => __('Vertical', 'weather-in-any-city-widget'),
 		'Visibility' => __('Visibility', 'weather-in-any-city-widget'),
 		'Weather Widget Pro' => __('Weather Widget Pro', 'weather-in-any-city-widget'),
+		'Weather icons color' => __('Weather icons color', 'weather-in-any-city-widget'),
 		'Weather in words' => __('Weather in words', 'weather-in-any-city-widget'),
+		'themes' => WIYCW_themes(),
 		'Wind' => __('Wind', 'weather-in-any-city-widget'),
 		'optional' => __('optional', 'weather-in-any-city-widget'),
 	);
@@ -83,7 +85,6 @@ function WIYCW_block_render($attributes){
 		$value = isset($attributes[$name]) && is_scalar($attributes[$name]) ? (string) $attributes[$name] : $definition['default'];
 		$instance[$name] = sanitize_text_field($value);
 	}
-	// «0 days» of the block is «off» for the widget
 	if($instance['days'] === '0'){
 		$instance['days'] = 'off';
 	}
@@ -92,6 +93,11 @@ function WIYCW_block_render($attributes){
 	$html = WIYCW_public($instance);
 	$wrapper = function_exists('get_block_wrapper_attributes') ? get_block_wrapper_attributes() : '';
 	return '<div ' . $wrapper . '>' . $html . '</div>';
+}
+
+function WIYCW_block_api_version(){
+	global $wp_version;
+	return isset($wp_version) && version_compare($wp_version, '6.3', '>=') ? 3 : 2;
 }
 
 function WIYCW_register_block(){
@@ -103,10 +109,11 @@ function WIYCW_register_block(){
 	wp_localize_script('WIYCW-block', 'WIYCW_block', array(
 		'searchUrl' => WIYCW_API . '/wpsearch',
 		'i18n' => WIYCW_block_words(),
+		'apiVersion' => WIYCW_block_api_version(),
 		'defaults' => array_map(function ($definition) { return $definition['default']; }, WIYCW_block_attributes())
 	));
 	register_block_type('wiycw/weather', array(
-		'api_version' => 2,
+		'api_version' => WIYCW_block_api_version(),
 		'title' => __('Weather Widget Pro', 'weather-in-any-city-widget'),
 		'description' => __('Weather Widget Pro provides a complete weather forecast for any location around the world.', 'weather-in-any-city-widget'),
 		'category' => 'widgets',
@@ -121,7 +128,6 @@ function WIYCW_register_block(){
 
 add_action('init', 'WIYCW_register_block');
 
-// The files of the widget inside the editor too (its preview is the real widget)
 function WIYCW_block_editor_assets(){
 	if(is_admin()){
 		WIYCW_enqueue(true);

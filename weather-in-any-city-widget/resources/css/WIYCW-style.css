@@ -21,7 +21,6 @@
 .WIYCW-footer{
 	width: 100%;
 	text-align: center;
-	font-size: 1em;
 	padding: 0.5em;
 	font-size: 0.75em;
 }
@@ -96,7 +95,6 @@
     justify-content: space-between;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.6em 2px;
-    width: 100%;
     font-size: 1em;
 
 }
@@ -111,13 +109,6 @@
     display: flex;
     flex: 1;
     align-items: center;
-    font-size: 0.75em;
-}
-
-.WIYCW-forecast-vertical .WIYCW-col-2 {
-	justify-content: center;
-    display: flex;
-    flex: 2;
     font-size: 0.75em;
 }
 
@@ -136,7 +127,6 @@
 	box-sizing: border-box;
     flex: 0 0 25%;
 	display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
@@ -164,15 +154,6 @@
 	margin: 2px 0px;
 }
 
-.WIYCW-forecast-horizontal .WIYCW-col-2 {
-	display: flex;
-	white-space: nowrap;
-	font-size: 0.75em;
-	text-align: center;
-	align-items: center;
-	margin: 2px 0px;
-}
-
 
 .WIYCW-forecast-temp{
 	font-weight: bold;
@@ -188,8 +169,6 @@
 	filter: drop-shadow(0px 1px 1px rgb(0 0 0 / 80%));
 }
 
-.WIYCW-icon-dark{}
-
 .WIYCW-icon-dark-shadow{
 	filter: drop-shadow(0px 1px 1px rgb(0 0 0 / 80%));
 }
@@ -203,14 +182,6 @@
 }
 
 
-/* ---- 2.0.0 ---- */
-
-.WIYCW-design-card .WIYCW-forecast-rain,
-.WIYCW-design-card .WIYCW-forecast-wind{
-	display: flex;
-	align-items: center;
-	white-space: nowrap;
-}
 
 .WIYCW-message{
 	padding: 1em 0.8em;
@@ -225,7 +196,7 @@
 	border: 1px dashed currentColor;
 	border-radius: 8px;
 	font-size: 0.9em;
-	text-align: left;
+	text-align: start;
 }
 
 .WIYCW-message-who{
@@ -236,7 +207,6 @@
 	display: none;
 }
 
-/* the small link to the weather service: its logo, centred */
 .WIYCW-footer:not(:empty){
 	display: flex;
 	align-items: center;
@@ -261,24 +231,69 @@
 	box-shadow: none;
 }
 
-/* ---- The card design: a sky that tells the weather, the facts and the days on white ---- */
+.WIYCW-credit,
+.WIYCW-credit:hover,
+.WIYCW-credit:focus,
+.WIYCW-credit:active,
+.WIYCW-credit:visited{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+.WIYCW-credit img{
+	padding: 0;
+	background: none;
+}
+
+.WIYCW-wrapper .WIYCW-num{
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+}
+
 
 .WIYCW-design-card{
 	max-width: 440px;
-	border: 0 !important;
-	border-radius: 16px;
-	background: #fff !important;
-	color: #1f2d3a !important;
-	box-shadow: 0 1px 2px rgba(16, 42, 67, 0.08), 0 8px 24px rgba(16, 42, 67, 0.12);
+	border: var(--wiycw-border, 0) !important;
+	border-radius: var(--wiycw-radius, 16px);
+	background: var(--wiycw-bg, #fff) !important;
+	color: var(--wiycw-ink, #1f2d3a) !important;
+	box-shadow: var(--wiycw-shadow, 0 1px 2px rgba(16, 42, 67, 0.08), 0 8px 24px rgba(16, 42, 67, 0.12));
 	font-family: inherit;
 	line-height: 1.35;
-	text-align: left;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-align: start;
 }
 
 .WIYCW-design-card *,
 .WIYCW-design-card *::before,
 .WIYCW-design-card *::after{
 	box-sizing: border-box;
+}
+
+:where(.WIYCW-design-card) div:not(p),
+:where(.WIYCW-design-card) span:not(p),
+:where(.WIYCW-design-card) section:not(p),
+:where(.WIYCW-design-card) i:not(p),
+:where(.WIYCW-design-card) a:not(p){
+	margin: 0;
+	padding: 0;
+	line-height: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+}
+
+:where(.WIYCW-design-card) section:not(p),
+:where(.WIYCW-design-card) i:not(p){
+	border: 0;
+}
+
+:where(.WIYCW-design-card) span:not(p){
+	color: inherit;
 }
 
 .WIYCW-design-card img{
@@ -303,7 +318,6 @@
 	overflow: hidden;
 }
 
-/* the night darkens the sky; a clear one is navy, a covered one slate */
 .WIYCW-skycard.WIYCW-is-night{
 	background-image: linear-gradient(0deg, var(--wiycw-sky-lo, #2c5c8d), var(--wiycw-sky-hi, #163e6c) 45%, var(--wiycw-sky-top, #0d2849));
 }
@@ -363,7 +377,7 @@
 }
 
 .WIYCW-wrapper.WIYCW-design-card .WIYCW-units button.WIYCW-units-btn:focus-visible{
-	outline: 2px solid #fff;
+	outline: 2px solid var(--wiycw-focus, #fff);
 	outline-offset: 2px;
 }
 
@@ -404,13 +418,12 @@
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-/* three facts (humidity, wind and pressure, those of a new widget) make one line from a card of about 290 px */
 .WIYCW-card-facts{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(5.4em, 1fr));
 	gap: 0.6em 0.5em;
 	padding: 0.85em 1em;
-	border-bottom: 1px solid #edf1f5;
+	border-bottom: 1px solid var(--wiycw-line, #edf1f5);
 }
 
 .WIYCW-fact{
@@ -432,9 +445,12 @@
 }
 
 .WIYCW-fact-label{
-	color: #62748a;
+	color: var(--wiycw-muted, #62748a);
 	font-size: 0.7em;
 	line-height: 1.2;
+	overflow-wrap: anywhere;
+	-webkit-hyphens: auto;
+	hyphens: auto;
 }
 
 .WIYCW-fact-value{
@@ -443,13 +459,12 @@
 }
 
 .WIYCW-card-hours{
-	/* as many hours as fit, sharing the width; the rest are not shown (no scroll bar) */
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(3.3em, 1fr)); /* auto-fit: fewer hours than room share the width */
+	grid-template-columns: repeat(auto-fit, minmax(3.3em, 1fr));
 	grid-template-rows: auto;
 	grid-auto-rows: 0;
 	padding: 0.7em 0.6em;
-	border-bottom: 1px solid #edf1f5;
+	border-bottom: 1px solid var(--wiycw-line, #edf1f5);
 	overflow: hidden;
 }
 
@@ -464,7 +479,7 @@
 
 .WIYCW-hour-time{
 	padding-top: 0.2em;
-	color: #62748a;
+	color: var(--wiycw-muted, #62748a);
 	font-size: 0.72em;
 	white-space: nowrap;
 }
@@ -477,13 +492,13 @@
 .WIYCW-hour-pop{
 	min-height: 1.2em;
 	padding-bottom: 0.2em;
-	color: #6b7b8e;
+	color: var(--wiycw-muted, #6b7b8e);
 	font-size: 0.7em;
 }
 
 .WIYCW-hour-pop.is-wet,
 .WIYCW-day-pop.is-wet{
-	color: #0077b6;
+	color: var(--wiycw-wet, #0077b6);
 	font-weight: 600;
 }
 
@@ -496,7 +511,7 @@
 	align-items: center;
 	gap: 0.5em;
 	min-height: 2.6em;
-	border-bottom: 1px solid #f1f4f7;
+	border-bottom: 1px solid var(--wiycw-line, #f1f4f7);
 }
 
 .WIYCW-day:last-child{
@@ -512,28 +527,27 @@
 	white-space: nowrap;
 }
 
-/* the chance and the litres, centred in their column and with the air on their left that the minimum leaves on
-   its right (it is right-aligned): the same space on both sides */
 .WIYCW-day-wet{
 	display: flex;
 	flex: 0 0 3.2em;
 	flex-direction: column;
 	align-items: center;
 	margin-left: 0.85em;
-	color: #6b7b8e;
+	margin-inline-start: 0.85em;
+	margin-inline-end: 0;
+	color: var(--wiycw-muted, #6b7b8e);
 	font-size: 0.7em;
 	line-height: 1.25;
 	white-space: nowrap;
 }
 
-/* a dry day: 0% and 0 mm, there but in the background */
 .WIYCW-day-wet .is-none{
-	color: #b3bdc8;
+	color: var(--wiycw-faint, #b3bdc8);
 }
 
-/* without the icons the name, which already has its own air, goes before it */
 .WIYCW-day-name + .WIYCW-day-wet{
 	margin-left: 0;
+	margin-inline-start: 0;
 }
 
 .WIYCW-day-min,
@@ -544,8 +558,9 @@
 }
 
 .WIYCW-day-min{
-	color: #62748a;
+	color: var(--wiycw-muted, #62748a);
 	text-align: right;
+	text-align: end;
 }
 
 .WIYCW-day-max{
@@ -558,7 +573,7 @@
 	min-width: 2em;
 	height: 6px;
 	border-radius: 999px;
-	background: #edf1f5;
+	background: var(--wiycw-track, #edf1f5);
 	overflow: hidden;
 }
 
@@ -568,7 +583,11 @@
 	bottom: 0;
 	min-width: 6px;
 	border-radius: 999px;
-	background: linear-gradient(90deg, #38b6e8, #ffb224);
+	background: var(--wiycw-bar, linear-gradient(90deg, #38b6e8, #ffb224));
+}
+
+.WIYCW-rtl .WIYCW-day-bar{
+	transform: scaleX(-1);
 }
 
 .WIYCW-day-wind{
@@ -576,7 +595,7 @@
 	flex: 0 0 auto;
 	align-items: center;
 	gap: 4px;
-	color: #62748a;
+	color: var(--wiycw-muted, #62748a);
 	font-size: 0.72em;
 	white-space: nowrap;
 }
@@ -586,23 +605,22 @@
 	opacity: 0.6;
 }
 
-/* the card without the conditions of now: no sky, the name of the place on a plain line over the rest */
 .WIYCW-card-plain .WIYCW-card-head{
 	padding: 0.85em 1em 0.75em;
-	border-bottom: 1px solid #edf1f5;
+	border-bottom: 1px solid var(--wiycw-line, #edf1f5);
 }
 
 .WIYCW-card-plain .WIYCW-card-title{
-	color: #1f2d3a;
+	color: var(--wiycw-ink, #1f2d3a);
 	text-shadow: none;
 }
 
 .WIYCW-card-plain .WIYCW-units{
-	background: #edf1f5;
+	background: var(--wiycw-switch, #edf1f5);
 }
 
 .WIYCW-wrapper.WIYCW-design-card .WIYCW-card-plain .WIYCW-units button.WIYCW-units-btn{
-	color: #455a6e;
+	color: var(--wiycw-switch-ink, #455a6e);
 }
 
 .WIYCW-wrapper.WIYCW-design-card .WIYCW-card-plain .WIYCW-units button.WIYCW-units-btn[aria-pressed="true"]{
@@ -612,19 +630,20 @@
 
 .WIYCW-card-updated{
 	padding: 0 1em 0.6em;
-	color: #8a99ab;
+	color: var(--wiycw-muted, #8a99ab);
 	font-size: 0.7em;
 	text-align: right;
+	text-align: end;
 }
 
 .WIYCW-design-card .WIYCW-message{
 	padding: 2.5em 1em;
-	color: #62748a;
+	color: var(--wiycw-muted, #62748a);
 }
 
 .WIYCW-design-card .WIYCW-footer{
 	padding: 0.6em 1em 0.8em;
-	border-top: 1px solid #edf1f5;
+	border-top: 1px solid var(--wiycw-line, #edf1f5);
 	font-size: 0.78em;
 	text-align: center;
 }
@@ -632,57 +651,60 @@
 .WIYCW-design-card .WIYCW-footer,
 .WIYCW-design-card .WIYCW-footer a,
 .WIYCW-design-card .WIYCW-footer a:visited{
-	color: #62748a !important;
+	color: var(--wiycw-muted, #62748a) !important;
 }
 
 .WIYCW-design-card .WIYCW-footer a:hover{
 	text-decoration: underline;
 }
 
-/* the box of the card before its data arrives */
 .WIYCW-card-waiting{
 	height: 11em;
-	border-radius: 16px 16px 0 0;
+	border-radius: var(--wiycw-radius, 16px) var(--wiycw-radius, 16px) 0 0;
 	background: linear-gradient(0deg, #66cbf3, #00abe9 45%);
 }
 
-/* two shortcodes one after the other do not touch when one of them is a sky card (each comes in its own box, with
-   or without a script in between); two classic ones stay as they always were */
 .WIYCW-shortcode + .WIYCW-shortcode > .WIYCW-design-card,
 .WIYCW-shortcode + script + .WIYCW-shortcode > .WIYCW-design-card,
 .wp-block-wiycw-weather + .wp-block-wiycw-weather > .WIYCW-shortcode > .WIYCW-design-card{
 	margin-top: 1.25em;
 }
 
-/* apart: a browser without :has() drops a whole rule that names it */
 .WIYCW-shortcode:has(> .WIYCW-design-card) + .WIYCW-shortcode > .WIYCW-wrapper,
 .WIYCW-shortcode:has(> .WIYCW-design-card) + script + .WIYCW-shortcode > .WIYCW-wrapper{
 	margin-top: 1.25em;
 }
 
-/* the card measures itself: what follows depends on its own width, not on the window */
 .WIYCW-design-card{
-	container-type: inline-size;
-	/* a container has no width of its own: inside a parent that takes the width of its content (flex, grid, a table
-	   cell) it would measure nothing. This is also the least the parent can shrink it to, so it is the narrowest the
-	   card looks right, not its full width */
+	container: wiycwcard / inline-size;
 	contain-intrinsic-inline-size: 20em;
 }
 
-/* the days measure themselves too: in the horizontal card they have a column, not the whole card */
 .WIYCW-card-days{
 	container: wiycwdays / inline-size;
 }
 
-/* a browser with containers but without that width: better no container than a card of no width */
-@supports not (contain-intrinsic-inline-size: 1px){
+@supports not ((contain-intrinsic-inline-size: 1px) and (container-type: inline-size)){
 	.WIYCW-design-card,
 	.WIYCW-card-days{
 		container-type: normal;
 	}
+
+	.WIYCW-day-wind,
+	.WIYCW-day-track,
+	.WIYCW-card-days.WIYCW-tight .WIYCW-day-wet{
+		display: none;
+	}
+
+	.WIYCW-day-name{
+		flex: 1 0 auto;
+	}
+
+	.WIYCW-card-main{
+		flex-wrap: wrap;
+	}
 }
 
-/* a narrow sidebar: the days give up, in this order, the wind, the bar and the rain, and the figures stay */
 @container wiycwdays (max-width: 21em){
 	.WIYCW-day-wind{
 		display: none;
@@ -706,19 +728,17 @@
 	}
 }
 
-@container (max-width: 18.5em){
+@container wiycwcard (max-width: 18.5em){
 	.WIYCW-card-main{
 		flex-wrap: wrap;
 	}
 }
 
-/* the horizontal card: with room, the sky on the left and the facts, the hours and the days on the right; without it
-   (a sidebar, a phone) it stacks like the vertical one */
 .WIYCW-design-card[data-layout="horizontal"]{
 	max-width: 780px;
 }
 
-@container (min-width: 540px){
+@container wiycwcard (min-width: 540px){
 	.WIYCW-design-card[data-layout="horizontal"] .WIYCW-content:not(.WIYCW-no-sky){
 		display: grid;
 		grid-template-columns: minmax(230px, 40%) minmax(0, 1fr);
@@ -758,5 +778,153 @@
 
 	.WIYCW-design-card[data-layout="horizontal"] .WIYCW-message{
 		grid-column: 1 / -1;
+	}
+}
+
+@media print{
+	.WIYCW-design-card{
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+}
+
+@media (forced-colors: active){
+	.WIYCW-wrapper.WIYCW-design-card .WIYCW-units button.WIYCW-units-btn[aria-pressed="true"]{
+		outline: 2px solid;
+		outline-offset: -2px;
+		text-decoration: underline;
+	}
+
+	.WIYCW-wrapper.WIYCW-design-card .WIYCW-units button.WIYCW-units-btn:focus-visible{
+		outline: 2px solid;
+		outline-offset: 2px;
+	}
+}
+
+
+.WIYCW-theme-dark,
+.WIYCW-theme-full{
+	--wiycw-line: rgba(255, 255, 255, 0.09);
+	--wiycw-track: rgba(255, 255, 255, 0.12);
+	--wiycw-ui: invert(1);
+	--wiycw-switch: rgba(255, 255, 255, 0.12);
+	--wiycw-switch-ink: #d5dee8;
+	--wiycw-bar: linear-gradient(90deg, #5cc6f2, #ffbe3d);
+}
+
+.WIYCW-theme-dark .WIYCW-fact-icon,
+.WIYCW-theme-dark .WIYCW-day-arrow,
+.WIYCW-theme-full .WIYCW-fact-icon,
+.WIYCW-theme-full .WIYCW-day-arrow,
+.WIYCW-on-dark .WIYCW-fact-icon,
+.WIYCW-on-dark .WIYCW-day-arrow{
+	filter: var(--wiycw-ui, invert(1));
+}
+
+.WIYCW-theme-dark{
+	--wiycw-bg: #16202b;
+	--wiycw-ink: #e6edf4;
+	--wiycw-muted: #9cafc2;
+	--wiycw-faint: #5b6d80;
+	--wiycw-wet: #66c8f5;
+	--wiycw-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.WIYCW-theme-full{
+	--wiycw-bg: linear-gradient(var(--wiycw-deep, #1a5e96), var(--wiycw-deeper, #123f66));
+	--wiycw-ink: #fff;
+	--wiycw-muted: rgba(255, 255, 255, 0.8);
+	--wiycw-faint: rgba(255, 255, 255, 0.5);
+	--wiycw-line: rgba(255, 255, 255, 0.16);
+	--wiycw-track: rgba(255, 255, 255, 0.2);
+	--wiycw-wet: #c4ecff;
+	--wiycw-switch: rgba(255, 255, 255, 0.22);
+	--wiycw-switch-ink: #fff;
+	--wiycw-bar: linear-gradient(90deg, #9fe0ff, #ffcb5c);
+	--wiycw-shadow: 0 1px 2px rgba(16, 42, 67, 0.12), 0 10px 28px rgba(16, 42, 67, 0.22);
+}
+
+.WIYCW-theme-full .WIYCW-skycard,
+.WIYCW-theme-full .WIYCW-skycard.WIYCW-is-night{
+	background-color: transparent;
+	background-image: linear-gradient(0deg, transparent, var(--wiycw-sky-hi, #00abe9) 60%, var(--wiycw-sky-top, var(--wiycw-sky-hi, #00abe9)));
+}
+
+.WIYCW-theme-flat{
+	--wiycw-radius: 5px;
+	--wiycw-border: 1px solid #dfe5ec;
+	--wiycw-shadow: none;
+}
+
+.WIYCW-theme-flat .WIYCW-card-plain{
+	--wiycw-focus: #004f78;
+}
+
+.WIYCW-theme-flat .WIYCW-units,
+.WIYCW-wrapper.WIYCW-theme-flat .WIYCW-units button.WIYCW-units-btn{
+	border-radius: 4px;
+}
+
+.WIYCW-theme-blend{
+	--wiycw-bg: none;
+	--wiycw-ink: currentColor;
+	--wiycw-muted: currentColor;
+	--wiycw-faint: currentColor;
+	--wiycw-line: rgba(128, 128, 128, 0.25);
+	--wiycw-track: rgba(128, 128, 128, 0.25);
+	--wiycw-switch: rgba(128, 128, 128, 0.2);
+	--wiycw-switch-ink: currentColor;
+	--wiycw-radius: 0;
+	--wiycw-shadow: none;
+	overflow: visible;
+}
+
+@supports (color: color-mix(in srgb, red 50%, blue)){
+	.WIYCW-theme-blend{
+		--wiycw-muted: color-mix(in srgb, currentColor 72%, transparent);
+		--wiycw-faint: color-mix(in srgb, currentColor 40%, transparent);
+		--wiycw-line: color-mix(in srgb, currentColor 14%, transparent);
+		--wiycw-track: color-mix(in srgb, currentColor 14%, transparent);
+		--wiycw-switch: color-mix(in srgb, currentColor 12%, transparent);
+	}
+}
+
+.WIYCW-theme-blend.WIYCW-on-dark{
+	--wiycw-wet: #66c8f5;
+	--wiycw-ui: invert(1);
+}
+
+.WIYCW-logo-pill .WIYCW-credit{
+	padding: 3px 8px;
+	border-radius: 999px;
+	background: #fff;
+}
+
+.WIYCW-theme-blend .WIYCW-skycard,
+.WIYCW-theme-blend .WIYCW-card-waiting{
+	border-radius: 14px;
+}
+
+.WIYCW-theme-blend .WIYCW-card-facts,
+.WIYCW-theme-blend .WIYCW-card-days,
+.WIYCW-theme-blend .WIYCW-card-updated,
+.WIYCW-theme-blend :where(.WIYCW-card-plain) .WIYCW-card-head,
+.WIYCW-theme-blend .WIYCW-footer,
+.WIYCW-theme-blend .WIYCW-card-hours{
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.WIYCW-theme-blend .WIYCW-card-plain{
+	--wiycw-focus: currentColor;
+}
+
+.WIYCW-wrapper.WIYCW-theme-blend .WIYCW-card-plain .WIYCW-units button.WIYCW-units-btn[aria-pressed="true"]{
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@container wiycwcard (min-width: 540px){
+	.WIYCW-theme-blend :where([data-layout="horizontal"] .WIYCW-content:not(.WIYCW-no-sky)) > :not(.WIYCW-skycard){
+		padding-inline-start: 1.25em;
 	}
 }
