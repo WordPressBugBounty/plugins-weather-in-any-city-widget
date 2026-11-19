@@ -527,6 +527,22 @@
 	white-space: nowrap;
 }
 
+:where(.WIYCW-design-card[data-lang|="ar"], .WIYCW-design-card[data-lang|="ary"]) .WIYCW-day-name{
+	flex-basis: 5.1em;
+}
+
+:where(.WIYCW-design-card[data-lang|="fi"]) .WIYCW-day-name{
+	flex-basis: 5.3em;
+}
+
+:where(.WIYCW-design-card[data-lang|="fa"]) .WIYCW-day-name{
+	flex-basis: 5.4em;
+}
+
+:where(.WIYCW-design-card[data-lang|="bn"]) .WIYCW-day-name{
+	flex-basis: 5.9em;
+}
+
 .WIYCW-day-wet{
 	display: flex;
 	flex: 0 0 3.2em;

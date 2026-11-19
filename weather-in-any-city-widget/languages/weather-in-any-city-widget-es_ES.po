@@ -23,6 +23,14 @@ msgstr "Cielo"
 #: weather-in-any-city-widget.php:120 weather-in-any-city-widget.php:796
 #: weather-in-any-city-widget.php:814 includes/WIYCW-admin.php:222
 #: includes/WIYCW-admin.php:224 includes/WIYCW-block.php:43
+msgctxt "card style"
+msgid "Dark"
+msgstr "Oscuro"
+
+#: weather-in-any-city-widget.php:120 weather-in-any-city-widget.php:796
+#: weather-in-any-city-widget.php:814 includes/WIYCW-admin.php:222
+#: includes/WIYCW-admin.php:224 includes/WIYCW-block.php:43
+msgctxt "icon color"
 msgid "Dark"
 msgstr "Oscuro"
 
@@ -555,12 +563,14 @@ msgstr "Color de iconos del tiempo"
 
 #: weather-in-any-city-widget.php:788 includes/WIYCW-admin.php:222
 #: includes/WIYCW-block.php:42
+msgctxt "icon color"
 msgid "Color"
 msgstr "Color"
 
 #: weather-in-any-city-widget.php:792 weather-in-any-city-widget.php:810
 #: includes/WIYCW-admin.php:222 includes/WIYCW-admin.php:224
 #: includes/WIYCW-block.php:44
+msgctxt "icon color"
 msgid "Light"
 msgstr "Claro"
 

@@ -938,7 +938,7 @@
 					return;
 				}
 				var row = el('div', 'WIYCW-forecast-row');
-				row.appendChild(el('div', 'WIYCW-forecast-date WIYCW-col-1', dayLabel(day, index)));
+				row.appendChild(el('div', 'WIYCW-forecast-date WIYCW-col-1', dayLabel(day, index, widget.getAttribute('data-lang'))));
 				if (set.temp === 'on') {
 					row.appendChild(withNum(el('div', 'WIYCW-forecast-temp WIYCW-col-1'), '', tempClassic(day.temp_max, units) + ' / ' + tempClassic(day.temp_min, units)));
 				}
@@ -982,7 +982,7 @@
 		content.appendChild(fragment);
 	}
 
-	function dayLabel(day, index) {
+	function dayLabel(day, index, lang) {
 		var words = i18n();
 		if (index === 0) {
 			return capitalize(words.today || 'today');
@@ -996,6 +996,9 @@
 			parts.push(capitalize(names[day.wday]));
 		}
 		if (isNumber(day.day) || (typeof day.day === 'string' && day.day)) {
+			if (/^ja(?:[-_]|$)/i.test(String(lang || '')) && parts.length === 1) {
+				return String(day.day) + '日(' + parts[0] + ')';
+			}
 			parts.push(String(day.day));
 		}
 		return parts.join(' ');
@@ -1294,7 +1297,7 @@
 			days.forEach(function (day, index) {
 				var row = el('div', 'WIYCW-day');
 				row.setAttribute('role', 'listitem');
-				row.appendChild(el('div', 'WIYCW-day-name', dayLabel(day, index)));
+				row.appendChild(el('div', 'WIYCW-day-name', dayLabel(day, index, widget.getAttribute('data-lang'))));
 				if (set.forecasticon !== 'off') {
 					row.appendChild(knownIcon(day) ? modernImage(ground, day, condition(day), 30, 'WIYCW-day-icon') : blank(30, 'WIYCW-day-icon'));
 				}

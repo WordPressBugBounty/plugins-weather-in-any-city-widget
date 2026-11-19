@@ -1,0 +1,665 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Weather Widget Pro 2.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-17 11:32+0100\n"
+"PO-Revision-Date: 2026-11-19 12:00+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: weather-in-any-city-widget.php:119
+msgid "Sky"
+msgstr "Himmel"
+
+#: weather-in-any-city-widget.php:120 weather-in-any-city-widget.php:796
+#: weather-in-any-city-widget.php:814 includes/WIYCW-admin.php:222
+#: includes/WIYCW-admin.php:224 includes/WIYCW-block.php:43
+msgctxt "card style"
+msgid "Dark"
+msgstr "Mörk"
+
+#: weather-in-any-city-widget.php:120 weather-in-any-city-widget.php:796
+#: weather-in-any-city-widget.php:814 includes/WIYCW-admin.php:222
+#: includes/WIYCW-admin.php:224 includes/WIYCW-block.php:43
+msgctxt "icon color"
+msgid "Dark"
+msgstr "Mörka"
+
+#: weather-in-any-city-widget.php:121
+msgid "Full sky"
+msgstr "Hel himmel"
+
+#: weather-in-any-city-widget.php:122
+msgid "Flat"
+msgstr "Platt"
+
+#: weather-in-any-city-widget.php:123
+msgid "Transparent"
+msgstr "Transparent"
+
+#: weather-in-any-city-widget.php:135
+msgid "mon."
+msgstr "mån"
+
+#: weather-in-any-city-widget.php:136
+msgid "tue."
+msgstr "tis"
+
+#: weather-in-any-city-widget.php:137
+msgid "wed."
+msgstr "ons"
+
+#: weather-in-any-city-widget.php:138
+msgid "thu."
+msgstr "tors"
+
+#: weather-in-any-city-widget.php:139
+msgid "fri."
+msgstr "fre"
+
+#: weather-in-any-city-widget.php:140
+msgid "sat."
+msgstr "lör"
+
+#: weather-in-any-city-widget.php:141
+msgid "sun."
+msgstr "sön"
+
+#: weather-in-any-city-widget.php:142
+msgid "today"
+msgstr "idag"
+
+#: weather-in-any-city-widget.php:143
+msgid "tmrw."
+msgstr "imorgon"
+
+#: weather-in-any-city-widget.php:145 weather-in-any-city-widget.php:481
+#: includes/WIYCW-admin.php:188 includes/WIYCW-block.php:49
+msgid "Feels like"
+msgstr "Känns som"
+
+#: weather-in-any-city-widget.php:146 weather-in-any-city-widget.php:563
+#: includes/WIYCW-admin.php:199 includes/WIYCW-block.php:55
+msgid "Humidity"
+msgstr "Luftfuktighet"
+
+#: weather-in-any-city-widget.php:147 weather-in-any-city-widget.php:575
+#: weather-in-any-city-widget.php:745 includes/WIYCW-admin.php:200
+#: includes/WIYCW-admin.php:214 includes/WIYCW-block.php:84
+msgid "Wind"
+msgstr "Vind"
+
+#: weather-in-any-city-widget.php:148 weather-in-any-city-widget.php:587
+#: includes/WIYCW-admin.php:201 includes/WIYCW-block.php:61
+msgid "Pressure"
+msgstr "Lufttryck"
+
+#: weather-in-any-city-widget.php:149 weather-in-any-city-widget.php:599
+#: includes/WIYCW-admin.php:203 includes/WIYCW-block.php:41
+msgid "Cloudiness"
+msgstr "Molnighet"
+
+#: weather-in-any-city-widget.php:150 weather-in-any-city-widget.php:487
+#: includes/WIYCW-admin.php:189 includes/WIYCW-block.php:78
+msgid "Visibility"
+msgstr "Sikt"
+
+#: weather-in-any-city-widget.php:151 includes/WIYCW-block.php:68
+msgid "Sunrise"
+msgstr "Soluppgång"
+
+#: weather-in-any-city-widget.php:152 includes/WIYCW-block.php:69
+msgid "Sunset"
+msgstr "Solnedgång"
+
+#: weather-in-any-city-widget.php:153 weather-in-any-city-widget.php:758
+#: includes/WIYCW-admin.php:212 includes/WIYCW-block.php:63
+msgid "Rain probability"
+msgstr "Regnrisk"
+
+#: weather-in-any-city-widget.php:154 weather-in-any-city-widget.php:636
+#: includes/WIYCW-admin.php:208 includes/WIYCW-block.php:52
+msgid "Forecast"
+msgstr "Prognos"
+
+#: weather-in-any-city-widget.php:155 weather-in-any-city-widget.php:493
+#: includes/WIYCW-admin.php:190 includes/WIYCW-block.php:60
+msgid "Hourly forecast"
+msgstr "Kommande timmar"
+
+#: weather-in-any-city-widget.php:156 weather-in-any-city-widget.php:423
+#: includes/WIYCW-admin.php:176 includes/WIYCW-block.php:76
+msgid "Units"
+msgstr "Enheter"
+
+#: weather-in-any-city-widget.php:157 weather-in-any-city-widget.php:516
+#: includes/WIYCW-admin.php:195 includes/WIYCW-block.php:45
+msgid "Current conditions"
+msgstr "Aktuellt väder"
+
+#. translators: %s: a time, like 14:30
+#: weather-in-any-city-widget.php:159
+#, php-format
+msgid "Updated at %s"
+msgstr "Uppdaterad: %s"
+
+#: weather-in-any-city-widget.php:160
+msgid "Weather data is temporarily unavailable."
+msgstr "Väderdata är tillfälligt otillgängliga."
+
+#: weather-in-any-city-widget.php:161
+msgid "The weather service is not available for this site."
+msgstr "Vädertjänsten är inte tillgänglig för den här webbplatsen."
+
+#: weather-in-any-city-widget.php:162
+msgid ""
+"The weather service has blocked this site. Contact us at weatherin.org/"
+"contact to restore access."
+msgstr "Vädertjänsten har blockerat den här webbplatsen. Kontakta oss på weatherin.org/contact för att få tillbaka åtkomsten."
+
+#: weather-in-any-city-widget.php:163
+msgid ""
+"Too many requests to the weather service. The widget will try again in a few "
+"minutes."
+msgstr "För många förfrågningar till vädertjänsten. Widgeten försöker igen om några minuter."
+
+#: weather-in-any-city-widget.php:164
+msgid ""
+"The city of this widget was not found. Choose it again in the widget "
+"settings."
+msgstr "Widgetens stad hittades inte. Välj den igen i widgetens inställningar."
+
+#: weather-in-any-city-widget.php:165
+msgid ""
+"This site could not reach the weather service (eltiempoen.com). Check that "
+"your server allows outgoing connections."
+msgstr "Den här webbplatsen kunde inte nå vädertjänsten (eltiempoen.com). Kontrollera att din server tillåter utgående anslutningar."
+
+#: weather-in-any-city-widget.php:166
+msgid ""
+"The weather service did not respond. The widget will try again in a few "
+"minutes."
+msgstr "Vädertjänsten svarade inte. Widgeten försöker igen om några minuter."
+
+#: weather-in-any-city-widget.php:167
+msgid ""
+"This site did not respond to the request of the widget (admin-ajax.php)."
+msgstr "Den här webbplatsen svarade inte på widgetens förfrågan (admin-ajax.php)."
+
+#: weather-in-any-city-widget.php:168
+msgid "(Only site editors can see this.)"
+msgstr "(Endast webbplatsens redaktörer ser detta meddelande.)"
+
+#: weather-in-any-city-widget.php:176
+msgid "Thunderstorm with rain"
+msgstr "Åska med regn"
+
+#: weather-in-any-city-widget.php:177
+msgid "Thunderstorm"
+msgstr "Åska"
+
+#: weather-in-any-city-widget.php:178
+msgid "Drizzle"
+msgstr "Duggregn"
+
+#: weather-in-any-city-widget.php:179
+msgid "Light rain"
+msgstr "Lätt regn"
+
+#: weather-in-any-city-widget.php:180 weather-in-any-city-widget.php:766
+#: includes/WIYCW-admin.php:213 includes/WIYCW-block.php:62
+msgid "Rain"
+msgstr "Regn"
+
+#: weather-in-any-city-widget.php:181
+msgid "Heavy rain"
+msgstr "Kraftigt regn"
+
+#: weather-in-any-city-widget.php:182
+msgid "Showers"
+msgstr "Regnskurar"
+
+#: weather-in-any-city-widget.php:183
+msgid "Sleet"
+msgstr "Snöblandat regn"
+
+#: weather-in-any-city-widget.php:184
+msgid "Dust"
+msgstr "Damm"
+
+#: weather-in-any-city-widget.php:191
+msgid "Freezing rain"
+msgstr "Underkylt regn"
+
+#: weather-in-any-city-widget.php:192
+msgid "Light showers"
+msgstr "Lätta regnskurar"
+
+#: weather-in-any-city-widget.php:193
+msgid "Heavy showers"
+msgstr "Kraftiga regnskurar"
+
+#: weather-in-any-city-widget.php:194
+msgid "Light snow"
+msgstr "Lätt snöfall"
+
+#: weather-in-any-city-widget.php:194
+msgid "Snow"
+msgstr "Snö"
+
+#: weather-in-any-city-widget.php:195
+msgid "Heavy snow"
+msgstr "Kraftigt snöfall"
+
+#: weather-in-any-city-widget.php:197
+msgid "Rain and snow"
+msgstr "Regn och snö"
+
+#: weather-in-any-city-widget.php:198
+msgid "Light snow showers"
+msgstr "Lätta snöbyar"
+
+#: weather-in-any-city-widget.php:198
+msgid "Snow showers"
+msgstr "Snöbyar"
+
+#: weather-in-any-city-widget.php:199
+msgid "Heavy snow showers"
+msgstr "Kraftiga snöbyar"
+
+#: weather-in-any-city-widget.php:200
+msgid "Mist"
+msgstr "Dis"
+
+#: weather-in-any-city-widget.php:200
+msgid "Smoke"
+msgstr "Rök"
+
+#: weather-in-any-city-widget.php:201
+msgid "Haze"
+msgstr "Torrdis"
+
+#: weather-in-any-city-widget.php:201
+msgid "Fog"
+msgstr "Dimma"
+
+#: weather-in-any-city-widget.php:203
+msgid "Squalls"
+msgstr "Kraftiga vindbyar"
+
+#: weather-in-any-city-widget.php:203
+msgid "Tornado"
+msgstr "Tornado"
+
+#: weather-in-any-city-widget.php:204
+msgid "Clear sky"
+msgstr "Klart"
+
+#: weather-in-any-city-widget.php:204
+msgid "Mostly clear"
+msgstr "Lätt molnighet"
+
+#: weather-in-any-city-widget.php:205
+msgid "Partly cloudy"
+msgstr "Halvklart"
+
+#: weather-in-any-city-widget.php:205
+msgid "Mostly cloudy"
+msgstr "Molnigt"
+
+#: weather-in-any-city-widget.php:206
+msgid "Overcast"
+msgstr "Mulet"
+
+#: weather-in-any-city-widget.php:224 includes/WIYCW-block.php:127
+msgid ""
+"Weather Widget Pro provides a complete weather forecast for any location "
+"around the world."
+msgstr "Weather Widget Pro ger en komplett väderprognos för alla platser i världen."
+
+#: weather-in-any-city-widget.php:225 includes/WIYCW-admin.php:16
+#: includes/WIYCW-admin.php:17 includes/WIYCW-admin.php:48
+#: includes/WIYCW-admin.php:82 includes/WIYCW-block.php:79
+#: includes/WIYCW-block.php:126
+msgid "Weather Widget Pro"
+msgstr "Weather Widget Pro"
+
+#: weather-in-any-city-widget.php:354 includes/WIYCW-admin.php:173
+#: includes/WIYCW-block.php:53
+msgid "General"
+msgstr "Allmänt"
+
+#: weather-in-any-city-widget.php:358 includes/WIYCW-admin.php:174
+#: includes/WIYCW-block.php:37
+msgid "City"
+msgstr "Stad"
+
+#: weather-in-any-city-widget.php:411 includes/WIYCW-admin.php:175
+#: includes/WIYCW-block.php:74
+msgid "Title"
+msgstr "Rubrik"
+
+#: weather-in-any-city-widget.php:411 includes/WIYCW-admin.php:175
+#: includes/WIYCW-block.php:85
+msgid "optional"
+msgstr "valfritt"
+
+#: weather-in-any-city-widget.php:417
+msgid "Title will overwrite the city name"
+msgstr "Rubriken ersätter stadens namn"
+
+#: weather-in-any-city-widget.php:428 includes/WIYCW-admin.php:177
+#: includes/WIYCW-block.php:36
+msgid "Celsius"
+msgstr "Celsius"
+
+#: weather-in-any-city-widget.php:432 includes/WIYCW-admin.php:177
+#: includes/WIYCW-block.php:48
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: weather-in-any-city-widget.php:439 weather-in-any-city-widget.php:442
+#: includes/WIYCW-admin.php:179 includes/WIYCW-admin.php:180
+#: includes/WIYCW-block.php:47
+msgid "Design"
+msgstr "Design"
+
+#: weather-in-any-city-widget.php:444 includes/WIYCW-admin.php:181
+#: includes/WIYCW-block.php:38
+msgid "Sky card"
+msgstr "Himmelskort"
+
+#: weather-in-any-city-widget.php:445 includes/WIYCW-admin.php:181
+#: includes/WIYCW-block.php:40
+msgid "Classic"
+msgstr "Klassisk"
+
+#: weather-in-any-city-widget.php:449 includes/WIYCW-admin.php:182
+#: includes/WIYCW-block.php:39
+msgid "Style"
+msgstr "Stil"
+
+#: weather-in-any-city-widget.php:457 includes/WIYCW-admin.php:184
+#: includes/WIYCW-block.php:57
+msgid "Layout"
+msgstr "Layout"
+
+#: weather-in-any-city-widget.php:462 includes/WIYCW-admin.php:185
+#: includes/WIYCW-block.php:77
+msgid "Vertical"
+msgstr "Vertikal"
+
+#: weather-in-any-city-widget.php:466 includes/WIYCW-admin.php:185
+#: includes/WIYCW-block.php:54
+msgid "Horizontal"
+msgstr "Horisontell"
+
+#: weather-in-any-city-widget.php:470 includes/WIYCW-admin.php:186
+msgid ""
+"The sky card changes its sky with the weather. These options only apply to "
+"it:"
+msgstr "Himmelskortet ändrar sin himmel efter vädret. De här alternativen gäller bara kortet:"
+
+#: weather-in-any-city-widget.php:475 includes/WIYCW-admin.php:187
+#: includes/WIYCW-block.php:81
+msgid "Weather in words"
+msgstr "Vädret i ord"
+
+#: weather-in-any-city-widget.php:499 includes/WIYCW-admin.php:191
+#: includes/WIYCW-block.php:58
+msgid "Let visitors switch between °C and °F"
+msgstr "Låt besökare växla mellan °C och °F"
+
+#: weather-in-any-city-widget.php:505 includes/WIYCW-admin.php:192
+#: includes/WIYCW-block.php:73
+msgid "Time of the last update"
+msgstr "Tid för senaste uppdatering"
+
+#: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
+#: includes/WIYCW-block.php:33
+msgid "Animated sky"
+msgstr "Animerad himmel"
+
+#: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
+#: includes/WIYCW-block.php:67
+msgid "Show current conditions"
+msgstr "Visa aktuellt väder"
+
+#: weather-in-any-city-widget.php:539 weather-in-any-city-widget.php:733
+#: includes/WIYCW-admin.php:197 includes/WIYCW-admin.php:211
+#: includes/WIYCW-block.php:56
+msgid "Icon"
+msgstr "Ikon"
+
+#: weather-in-any-city-widget.php:551 weather-in-any-city-widget.php:720
+#: includes/WIYCW-admin.php:198 includes/WIYCW-admin.php:210
+#: includes/WIYCW-block.php:71
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: weather-in-any-city-widget.php:613 includes/WIYCW-admin.php:204
+#: includes/WIYCW-block.php:70
+msgid "Sunrise / sunset"
+msgstr "Soluppgång / solnedgång"
+
+#: weather-in-any-city-widget.php:617 includes/WIYCW-admin.php:205
+#: includes/WIYCW-block.php:72
+msgid "Time format"
+msgstr "Tidsformat"
+
+#: weather-in-any-city-widget.php:622 includes/WIYCW-admin.php:206
+#: includes/WIYCW-block.php:32
+msgid "24 hours"
+msgstr "24 timmar"
+
+#: weather-in-any-city-widget.php:626 includes/WIYCW-admin.php:206
+#: includes/WIYCW-block.php:31
+msgid "12 hours"
+msgstr "12 timmar"
+
+#: weather-in-any-city-widget.php:638 includes/WIYCW-admin.php:209
+#: includes/WIYCW-block.php:46
+msgid "Days"
+msgstr "Dagar"
+
+#: weather-in-any-city-widget.php:643 includes/WIYCW-admin.php:154
+msgid "Disable forecast"
+msgstr "Inaktivera prognos"
+
+#: weather-in-any-city-widget.php:647 includes/WIYCW-admin.php:155
+msgid "1 day"
+msgstr "1 dag"
+
+#: weather-in-any-city-widget.php:651 includes/WIYCW-admin.php:156
+msgid "2 days"
+msgstr "2 dagar"
+
+#: weather-in-any-city-widget.php:655 includes/WIYCW-admin.php:157
+msgid "3 days"
+msgstr "3 dagar"
+
+#: weather-in-any-city-widget.php:659 includes/WIYCW-admin.php:158
+msgid "4 days"
+msgstr "4 dagar"
+
+#: weather-in-any-city-widget.php:663 includes/WIYCW-admin.php:159
+msgid "5 days"
+msgstr "5 dagar"
+
+#: weather-in-any-city-widget.php:667 includes/WIYCW-admin.php:160
+msgid "6 days"
+msgstr "6 dagar"
+
+#: weather-in-any-city-widget.php:671 includes/WIYCW-admin.php:161
+msgid "7 days"
+msgstr "7 dagar"
+
+#: weather-in-any-city-widget.php:675 includes/WIYCW-admin.php:162
+msgid "8 days"
+msgstr "8 dagar"
+
+#: weather-in-any-city-widget.php:679 includes/WIYCW-admin.php:163
+msgid "9 days"
+msgstr "9 dagar"
+
+#: weather-in-any-city-widget.php:683 includes/WIYCW-admin.php:164
+msgid "10 days"
+msgstr "10 dagar"
+
+#: weather-in-any-city-widget.php:687 includes/WIYCW-admin.php:165
+msgid "11 days"
+msgstr "11 dagar"
+
+#: weather-in-any-city-widget.php:691 includes/WIYCW-admin.php:166
+msgid "12 days"
+msgstr "12 dagar"
+
+#: weather-in-any-city-widget.php:695 includes/WIYCW-admin.php:167
+msgid "13 days"
+msgstr "13 dagar"
+
+#: weather-in-any-city-widget.php:699 weather-in-any-city-widget.php:703
+#: includes/WIYCW-admin.php:168
+msgid "14 days"
+msgstr "14 dagar"
+
+#: weather-in-any-city-widget.php:772 includes/WIYCW-admin.php:216
+#: includes/WIYCW-block.php:59
+msgid "Look and feel"
+msgstr "Utseende"
+
+#: weather-in-any-city-widget.php:775 includes/WIYCW-admin.php:217
+#: includes/WIYCW-block.php:51
+msgid "Font size"
+msgstr "Textstorlek"
+
+#: weather-in-any-city-widget.php:783 includes/WIYCW-admin.php:221
+#: includes/WIYCW-block.php:80
+msgid "Weather icons color"
+msgstr "Färg på väderikoner"
+
+#: weather-in-any-city-widget.php:788 includes/WIYCW-admin.php:222
+#: includes/WIYCW-block.php:42
+msgctxt "icon color"
+msgid "Color"
+msgstr "Färgade"
+
+#: weather-in-any-city-widget.php:792 weather-in-any-city-widget.php:810
+#: includes/WIYCW-admin.php:222 includes/WIYCW-admin.php:224
+#: includes/WIYCW-block.php:44
+msgctxt "icon color"
+msgid "Light"
+msgstr "Ljusa"
+
+#: weather-in-any-city-widget.php:805 includes/WIYCW-admin.php:223
+#: includes/WIYCW-block.php:75
+msgid "UI icons color"
+msgstr "Färg på gränssnittsikoner"
+
+#: weather-in-any-city-widget.php:822 includes/WIYCW-admin.php:218
+#: includes/WIYCW-block.php:50
+msgid "Font color"
+msgstr "Textfärg"
+
+#: weather-in-any-city-widget.php:830 includes/WIYCW-admin.php:219
+#: includes/WIYCW-block.php:34
+msgid "Background color"
+msgstr "Bakgrundsfärg"
+
+#: weather-in-any-city-widget.php:838 includes/WIYCW-admin.php:220
+#: includes/WIYCW-block.php:35
+msgid "Border color"
+msgstr "Kantfärg"
+
+#: weather-in-any-city-widget.php:853 includes/WIYCW-admin.php:225
+#: includes/WIYCW-block.php:65
+msgid "Shadow"
+msgstr "Skugga"
+
+#. translators: %s: eltiempoen.com or weatherin.org
+#: weather-in-any-city-widget.php:924
+#, php-format
+msgid "Show the logo of %s"
+msgstr "Visa logotypen för %s"
+
+#: includes/WIYCW-admin.php:27 includes/WIYCW-admin.php:50
+msgid "How to use"
+msgstr "Så använder du det"
+
+#: includes/WIYCW-admin.php:49
+msgid "add the weather with the block, the widget or a shortcode."
+msgstr "lägg till vädret med blocket, widgeten eller en kortkod."
+
+#. translators: %d: how big the preview is drawn, in percent
+#: includes/WIYCW-admin.php:68
+#, php-format
+msgid ""
+"Shown at %d%% of its size so that it fits here: on your site it will look "
+"bigger."
+msgstr "Visas i %d %% av sin storlek för att få plats här: på din webbplats blir den större."
+
+#: includes/WIYCW-admin.php:83
+msgid ""
+"Weather for more than 200,000 places, without an API key. There are three "
+"ways to add it:"
+msgstr "Väder för mer än 200 000 platser, utan API-nyckel. Det finns tre sätt att lägga till det:"
+
+#: includes/WIYCW-admin.php:86
+msgid "Block"
+msgstr "Block"
+
+#: includes/WIYCW-admin.php:87
+msgid ""
+"In the editor, add the “Weather Widget Pro” block, search for your city and "
+"choose what to show in the block sidebar."
+msgstr "Lägg till blocket ”Weather Widget Pro” i redigeraren, sök efter din stad och välj vad som ska visas i blockets sidopanel."
+
+#: includes/WIYCW-admin.php:91
+msgid "Widget"
+msgstr "Widget"
+
+#: includes/WIYCW-admin.php:92
+msgid ""
+"Go to Appearance > Widgets (or the Customizer) and add “Weather Widget Pro” "
+"to a sidebar. If your theme has no widget areas, use the block or the "
+"shortcode."
+msgstr "Gå till Utseende > Widgetar (eller Anpassaren) och lägg till ”Weather Widget Pro” i en sidopanel. Om ditt tema saknar widgetområden kan du använda blocket eller kortkoden."
+
+#: includes/WIYCW-admin.php:94
+msgid "Go to Widgets"
+msgstr "Gå till widgetar"
+
+#: includes/WIYCW-admin.php:99 includes/WIYCW-admin.php:114
+msgid "Shortcode"
+msgstr "Kortkod"
+
+#: includes/WIYCW-admin.php:100
+msgid ""
+"Search for a city, choose a design, then copy the shortcode and paste it "
+"into any page, post or text widget."
+msgstr "Sök efter en stad, välj en design, kopiera sedan kortkoden och klistra in den på valfri sida, i ett inlägg eller i en textwidget."
+
+#: includes/WIYCW-admin.php:111
+msgid "Preview"
+msgstr "Förhandsgranskning"
+
+#: includes/WIYCW-admin.php:116
+msgid "Copy"
+msgstr "Kopiera"
+
+#: includes/WIYCW-admin.php:117
+msgid "Copied"
+msgstr "Kopierad"
+
+#: includes/WIYCW-block.php:64
+msgid "Search for a city to show its weather."
+msgstr "Sök efter en stad för att visa vädret där."

@@ -4,7 +4,7 @@ Tags: weather, weather widget, weather forecast, tiempo, clima
 Requires at least: 5.3
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ Pick a city with the built-in search, choose what to show, and you are done.
 * **Show or hide every element**, one by one.
 * **Light on your site**: one small script without jQuery, weather data kept on your site for 30 minutes and written into the page, and the last good data shown if the weather service cannot be reached.
 * **Responsive** and compatible with any theme, classic or block-based. Works on multisite.
-* **English and Spanish**, translation-ready.
+* **In 36 languages**, with regional variants: your visitors see the days, the weather and the labels in the language of your site.
 
 = Quick start =
 
@@ -123,7 +123,9 @@ The service is free for everyone thanks to these limits. A site that abuses it, 
 
 = Is it translated into my language? =
 
-It comes in English and Spanish. You can help with other languages at translate.wordpress.org.
+Most likely. It comes in English, Spanish (Spain and Latin America), French, German, Italian, Portuguese (Brazil and Portugal), Dutch, Catalan, Swedish, Danish, Norwegian, Finnish, Greek, Hungarian, Russian, Ukrainian, Polish, Czech, Slovak, Romanian, Bulgarian, Croatian, Serbian, Turkish, Arabic, Hebrew, Persian, Hindi, Bengali, Japanese, Chinese (Simplified and Traditional), Korean, Vietnamese, Thai, Indonesian and Malay.
+
+Regional variants use their main language: a site in French of Canada gets French, one in Swiss German gets German, one in Spanish of Mexico gets Latin American Spanish. You can help improve any language at translate.wordpress.org.
 
 == External services ==
 
@@ -148,6 +150,11 @@ Privacy policy: https://weatherin.org/privacy-policy (English) and https://eltie
 6. The classic design, with your own colors, still looks as it always did next to the sky card.
 
 == Changelog ==
+
+= 2.1.1 =
+* New: the plugin is translated into 34 more languages, among them French, German, Italian, Portuguese (Brazil and Portugal), Japanese, Chinese (Simplified and Traditional), Russian, Arabic, Turkish and Hindi.
+* Regional variants use their main language (for example French of Canada uses French, Swiss German uses German).
+* The day names fit the forecast column in every language.
 
 = 2.1.0 =
 * New: five styles for the sky card, in the widget, the block and the shortcode generator (`theme`): Sky (as before), Dark, Full sky, Flat and Transparent, which takes the text color of your theme and works on light and dark backgrounds.
@@ -202,6 +209,9 @@ Privacy policy: https://weatherin.org/privacy-policy (English) and https://eltie
 * Improved: the connection to the service is verified (SSL), and a failed request is not repeated for a minute.
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+Translations into 34 more languages.
 
 = 2.1.0 =
 Five styles for the sky card. Your widgets, blocks and shortcodes keep their look.

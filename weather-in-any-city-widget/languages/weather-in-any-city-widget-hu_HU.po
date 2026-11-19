@@ -1,0 +1,639 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Weather Widget Pro 2.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-17 11:32+0100\n"
+"PO-Revision-Date: 2026-11-19 12:00+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: weather-in-any-city-widget.php:119
+msgid "Sky"
+msgstr "Égbolt"
+
+#: weather-in-any-city-widget.php:120 weather-in-any-city-widget.php:796
+#: weather-in-any-city-widget.php:814 includes/WIYCW-admin.php:222
+#: includes/WIYCW-admin.php:224 includes/WIYCW-block.php:43
+msgctxt "card style"
+msgid "Dark"
+msgstr "Sötét"
+
+#: weather-in-any-city-widget.php:120 weather-in-any-city-widget.php:796
+#: weather-in-any-city-widget.php:814 includes/WIYCW-admin.php:222
+#: includes/WIYCW-admin.php:224 includes/WIYCW-block.php:43
+msgctxt "icon color"
+msgid "Dark"
+msgstr "Sötét"
+
+#: weather-in-any-city-widget.php:121
+msgid "Full sky"
+msgstr "Teljes égbolt"
+
+#: weather-in-any-city-widget.php:122
+msgid "Flat"
+msgstr "Lapos"
+
+#: weather-in-any-city-widget.php:123
+msgid "Transparent"
+msgstr "Átlátszó"
+
+#: weather-in-any-city-widget.php:135
+msgid "mon."
+msgstr "H"
+
+#: weather-in-any-city-widget.php:136
+msgid "tue."
+msgstr "K"
+
+#: weather-in-any-city-widget.php:137
+msgid "wed."
+msgstr "Sze"
+
+#: weather-in-any-city-widget.php:138
+msgid "thu."
+msgstr "Cs"
+
+#: weather-in-any-city-widget.php:139
+msgid "fri."
+msgstr "P"
+
+#: weather-in-any-city-widget.php:140
+msgid "sat."
+msgstr "Szo"
+
+#: weather-in-any-city-widget.php:141
+msgid "sun."
+msgstr "V"
+
+#: weather-in-any-city-widget.php:142
+msgid "today"
+msgstr "ma"
+
+#: weather-in-any-city-widget.php:143
+msgid "tmrw."
+msgstr "holnap"
+
+#: weather-in-any-city-widget.php:145 weather-in-any-city-widget.php:481
+#: includes/WIYCW-admin.php:188 includes/WIYCW-block.php:49
+msgid "Feels like"
+msgstr "Hőérzet"
+
+#: weather-in-any-city-widget.php:146 weather-in-any-city-widget.php:563
+#: includes/WIYCW-admin.php:199 includes/WIYCW-block.php:55
+msgid "Humidity"
+msgstr "Páratartalom"
+
+#: weather-in-any-city-widget.php:147 weather-in-any-city-widget.php:575
+#: weather-in-any-city-widget.php:745 includes/WIYCW-admin.php:200
+#: includes/WIYCW-admin.php:214 includes/WIYCW-block.php:84
+msgid "Wind"
+msgstr "Szél"
+
+#: weather-in-any-city-widget.php:148 weather-in-any-city-widget.php:587
+#: includes/WIYCW-admin.php:201 includes/WIYCW-block.php:61
+msgid "Pressure"
+msgstr "Légnyomás"
+
+#: weather-in-any-city-widget.php:149 weather-in-any-city-widget.php:599
+#: includes/WIYCW-admin.php:203 includes/WIYCW-block.php:41
+msgid "Cloudiness"
+msgstr "Felhőzet"
+
+#: weather-in-any-city-widget.php:150 weather-in-any-city-widget.php:487
+#: includes/WIYCW-admin.php:189 includes/WIYCW-block.php:78
+msgid "Visibility"
+msgstr "Látótávolság"
+
+#: weather-in-any-city-widget.php:151 includes/WIYCW-block.php:68
+msgid "Sunrise"
+msgstr "Napkelte"
+
+#: weather-in-any-city-widget.php:152 includes/WIYCW-block.php:69
+msgid "Sunset"
+msgstr "Napnyugta"
+
+#: weather-in-any-city-widget.php:153 weather-in-any-city-widget.php:758
+#: includes/WIYCW-admin.php:212 includes/WIYCW-block.php:63
+msgid "Rain probability"
+msgstr "Csapadék valószínűsége"
+
+#: weather-in-any-city-widget.php:154 weather-in-any-city-widget.php:636
+#: includes/WIYCW-admin.php:208 includes/WIYCW-block.php:52
+msgid "Forecast"
+msgstr "Előrejelzés"
+
+#: weather-in-any-city-widget.php:155 weather-in-any-city-widget.php:493
+#: includes/WIYCW-admin.php:190 includes/WIYCW-block.php:60
+msgid "Hourly forecast"
+msgstr "Óránkénti előrejelzés"
+
+#: weather-in-any-city-widget.php:156 weather-in-any-city-widget.php:423
+#: includes/WIYCW-admin.php:176 includes/WIYCW-block.php:76
+msgid "Units"
+msgstr "Mértékegységek"
+
+#: weather-in-any-city-widget.php:157 weather-in-any-city-widget.php:516
+#: includes/WIYCW-admin.php:195 includes/WIYCW-block.php:45
+msgid "Current conditions"
+msgstr "Jelenlegi időjárás"
+
+#. translators: %s: a time, like 14:30
+#: weather-in-any-city-widget.php:159
+#, php-format
+msgid "Updated at %s"
+msgstr "Frissítve: %s"
+
+#: weather-in-any-city-widget.php:160
+msgid "Weather data is temporarily unavailable."
+msgstr "Az időjárási adatok átmenetileg nem érhetők el."
+
+#: weather-in-any-city-widget.php:161
+msgid "The weather service is not available for this site."
+msgstr "Az időjárás-szolgáltatás nem érhető el ennek a webhelynek."
+
+#: weather-in-any-city-widget.php:162
+msgid "The weather service has blocked this site. Contact us at weatherin.org/contact to restore access."
+msgstr "Az időjárás-szolgáltatás letiltotta ezt a webhelyet. A hozzáférés visszaállításához írj nekünk: weatherin.org/contact."
+
+#: weather-in-any-city-widget.php:163
+msgid "Too many requests to the weather service. The widget will try again in a few minutes."
+msgstr "Túl sok kérés érkezett az időjárás-szolgáltatáshoz. A widget néhány perc múlva újra próbálkozik."
+
+#: weather-in-any-city-widget.php:164
+msgid "The city of this widget was not found. Choose it again in the widget settings."
+msgstr "A widget városa nem található. Válaszd ki újra a widget beállításaiban."
+
+#: weather-in-any-city-widget.php:165
+msgid "This site could not reach the weather service (eltiempoen.com). Check that your server allows outgoing connections."
+msgstr "Ez a webhely nem tudott kapcsolódni az időjárás-szolgáltatáshoz (eltiempoen.com). Ellenőrizd, hogy a szerver engedélyezi-e a kimenő kapcsolatokat."
+
+#: weather-in-any-city-widget.php:166
+msgid "The weather service did not respond. The widget will try again in a few minutes."
+msgstr "Az időjárás-szolgáltatás nem válaszolt. A widget néhány perc múlva újra próbálkozik."
+
+#: weather-in-any-city-widget.php:167
+msgid "This site did not respond to the request of the widget (admin-ajax.php)."
+msgstr "Ez a webhely nem válaszolt a widget kérésére (admin-ajax.php)."
+
+#: weather-in-any-city-widget.php:168
+msgid "(Only site editors can see this.)"
+msgstr "(Ezt csak a webhely szerkesztői látják.)"
+
+#: weather-in-any-city-widget.php:176
+msgid "Thunderstorm with rain"
+msgstr "Zivatar esővel"
+
+#: weather-in-any-city-widget.php:177
+msgid "Thunderstorm"
+msgstr "Zivatar"
+
+#: weather-in-any-city-widget.php:178
+msgid "Drizzle"
+msgstr "Szitálás"
+
+#: weather-in-any-city-widget.php:179
+msgid "Light rain"
+msgstr "Gyenge eső"
+
+#: weather-in-any-city-widget.php:180 weather-in-any-city-widget.php:766
+#: includes/WIYCW-admin.php:213 includes/WIYCW-block.php:62
+msgid "Rain"
+msgstr "Eső"
+
+#: weather-in-any-city-widget.php:181
+msgid "Heavy rain"
+msgstr "Erős eső"
+
+#: weather-in-any-city-widget.php:182
+msgid "Showers"
+msgstr "Zápor"
+
+#: weather-in-any-city-widget.php:183
+msgid "Sleet"
+msgstr "Havas eső"
+
+#: weather-in-any-city-widget.php:184
+msgid "Dust"
+msgstr "Por"
+
+#: weather-in-any-city-widget.php:191
+msgid "Freezing rain"
+msgstr "Ónos eső"
+
+#: weather-in-any-city-widget.php:192
+msgid "Light showers"
+msgstr "Gyenge zápor"
+
+#: weather-in-any-city-widget.php:193
+msgid "Heavy showers"
+msgstr "Erős zápor"
+
+#: weather-in-any-city-widget.php:194
+msgid "Light snow"
+msgstr "Gyenge havazás"
+
+#: weather-in-any-city-widget.php:194
+msgid "Snow"
+msgstr "Havazás"
+
+#: weather-in-any-city-widget.php:195
+msgid "Heavy snow"
+msgstr "Erős havazás"
+
+#: weather-in-any-city-widget.php:197
+msgid "Rain and snow"
+msgstr "Eső és hó"
+
+#: weather-in-any-city-widget.php:198
+msgid "Light snow showers"
+msgstr "Gyenge hózápor"
+
+#: weather-in-any-city-widget.php:198
+msgid "Snow showers"
+msgstr "Hózápor"
+
+#: weather-in-any-city-widget.php:199
+msgid "Heavy snow showers"
+msgstr "Erős hózápor"
+
+#: weather-in-any-city-widget.php:200
+msgid "Mist"
+msgstr "Párás idő"
+
+#: weather-in-any-city-widget.php:200
+msgid "Smoke"
+msgstr "Füst"
+
+#: weather-in-any-city-widget.php:201
+msgid "Haze"
+msgstr "Szárazköd"
+
+#: weather-in-any-city-widget.php:201
+msgid "Fog"
+msgstr "Köd"
+
+#: weather-in-any-city-widget.php:203
+msgid "Squalls"
+msgstr "Szélrohamok"
+
+#: weather-in-any-city-widget.php:203
+msgid "Tornado"
+msgstr "Tornádó"
+
+#: weather-in-any-city-widget.php:204
+msgid "Clear sky"
+msgstr "Derült"
+
+#: weather-in-any-city-widget.php:204
+msgid "Mostly clear"
+msgstr "Gyengén felhős"
+
+#: weather-in-any-city-widget.php:205
+msgid "Partly cloudy"
+msgstr "Közepesen felhős"
+
+#: weather-in-any-city-widget.php:205
+msgid "Mostly cloudy"
+msgstr "Erősen felhős"
+
+#: weather-in-any-city-widget.php:206
+msgid "Overcast"
+msgstr "Borult"
+
+#: weather-in-any-city-widget.php:224 includes/WIYCW-block.php:127
+msgid "Weather Widget Pro provides a complete weather forecast for any location around the world."
+msgstr "A Weather Widget Pro teljes időjárás-előrejelzést ad a világ bármely pontjára."
+
+#: weather-in-any-city-widget.php:225 includes/WIYCW-admin.php:16
+#: includes/WIYCW-admin.php:17 includes/WIYCW-admin.php:48
+#: includes/WIYCW-admin.php:82 includes/WIYCW-block.php:79
+#: includes/WIYCW-block.php:126
+msgid "Weather Widget Pro"
+msgstr "Weather Widget Pro"
+
+#: weather-in-any-city-widget.php:354 includes/WIYCW-admin.php:173
+#: includes/WIYCW-block.php:53
+msgid "General"
+msgstr "Általános"
+
+#: weather-in-any-city-widget.php:358 includes/WIYCW-admin.php:174
+#: includes/WIYCW-block.php:37
+msgid "City"
+msgstr "Város"
+
+#: weather-in-any-city-widget.php:411 includes/WIYCW-admin.php:175
+#: includes/WIYCW-block.php:74
+msgid "Title"
+msgstr "Cím"
+
+#: weather-in-any-city-widget.php:411 includes/WIYCW-admin.php:175
+#: includes/WIYCW-block.php:85
+msgid "optional"
+msgstr "nem kötelező"
+
+#: weather-in-any-city-widget.php:417
+msgid "Title will overwrite the city name"
+msgstr "A cím felülírja a város nevét"
+
+#: weather-in-any-city-widget.php:428 includes/WIYCW-admin.php:177
+#: includes/WIYCW-block.php:36
+msgid "Celsius"
+msgstr "Celsius"
+
+#: weather-in-any-city-widget.php:432 includes/WIYCW-admin.php:177
+#: includes/WIYCW-block.php:48
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: weather-in-any-city-widget.php:439 weather-in-any-city-widget.php:442
+#: includes/WIYCW-admin.php:179 includes/WIYCW-admin.php:180
+#: includes/WIYCW-block.php:47
+msgid "Design"
+msgstr "Kialakítás"
+
+#: weather-in-any-city-widget.php:444 includes/WIYCW-admin.php:181
+#: includes/WIYCW-block.php:38
+msgid "Sky card"
+msgstr "Égboltkártya"
+
+#: weather-in-any-city-widget.php:445 includes/WIYCW-admin.php:181
+#: includes/WIYCW-block.php:40
+msgid "Classic"
+msgstr "Klasszikus"
+
+#: weather-in-any-city-widget.php:449 includes/WIYCW-admin.php:182
+#: includes/WIYCW-block.php:39
+msgid "Style"
+msgstr "Stílus"
+
+#: weather-in-any-city-widget.php:457 includes/WIYCW-admin.php:184
+#: includes/WIYCW-block.php:57
+msgid "Layout"
+msgstr "Elrendezés"
+
+#: weather-in-any-city-widget.php:462 includes/WIYCW-admin.php:185
+#: includes/WIYCW-block.php:77
+msgid "Vertical"
+msgstr "Függőleges"
+
+#: weather-in-any-city-widget.php:466 includes/WIYCW-admin.php:185
+#: includes/WIYCW-block.php:54
+msgid "Horizontal"
+msgstr "Vízszintes"
+
+#: weather-in-any-city-widget.php:470 includes/WIYCW-admin.php:186
+msgid "The sky card changes its sky with the weather. These options only apply to it:"
+msgstr "A kártya égboltja az időjárással együtt változik. Ezek a beállítások csak rá vonatkoznak:"
+
+#: weather-in-any-city-widget.php:475 includes/WIYCW-admin.php:187
+#: includes/WIYCW-block.php:81
+msgid "Weather in words"
+msgstr "Az időjárás szövegesen"
+
+#: weather-in-any-city-widget.php:499 includes/WIYCW-admin.php:191
+#: includes/WIYCW-block.php:58
+msgid "Let visitors switch between °C and °F"
+msgstr "A látogatók válthatnak °C és °F között"
+
+#: weather-in-any-city-widget.php:505 includes/WIYCW-admin.php:192
+#: includes/WIYCW-block.php:73
+msgid "Time of the last update"
+msgstr "Az utolsó frissítés ideje"
+
+#: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
+#: includes/WIYCW-block.php:33
+msgid "Animated sky"
+msgstr "Animált égbolt"
+
+#: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
+#: includes/WIYCW-block.php:67
+msgid "Show current conditions"
+msgstr "Jelenlegi időjárás megjelenítése"
+
+#: weather-in-any-city-widget.php:539 weather-in-any-city-widget.php:733
+#: includes/WIYCW-admin.php:197 includes/WIYCW-admin.php:211
+#: includes/WIYCW-block.php:56
+msgid "Icon"
+msgstr "Ikon"
+
+#: weather-in-any-city-widget.php:551 weather-in-any-city-widget.php:720
+#: includes/WIYCW-admin.php:198 includes/WIYCW-admin.php:210
+#: includes/WIYCW-block.php:71
+msgid "Temperature"
+msgstr "Hőmérséklet"
+
+#: weather-in-any-city-widget.php:613 includes/WIYCW-admin.php:204
+#: includes/WIYCW-block.php:70
+msgid "Sunrise / sunset"
+msgstr "Napkelte / napnyugta"
+
+#: weather-in-any-city-widget.php:617 includes/WIYCW-admin.php:205
+#: includes/WIYCW-block.php:72
+msgid "Time format"
+msgstr "Időformátum"
+
+#: weather-in-any-city-widget.php:622 includes/WIYCW-admin.php:206
+#: includes/WIYCW-block.php:32
+msgid "24 hours"
+msgstr "24 órás"
+
+#: weather-in-any-city-widget.php:626 includes/WIYCW-admin.php:206
+#: includes/WIYCW-block.php:31
+msgid "12 hours"
+msgstr "12 órás"
+
+#: weather-in-any-city-widget.php:638 includes/WIYCW-admin.php:209
+#: includes/WIYCW-block.php:46
+msgid "Days"
+msgstr "Napok"
+
+#: weather-in-any-city-widget.php:643 includes/WIYCW-admin.php:154
+msgid "Disable forecast"
+msgstr "Előrejelzés kikapcsolása"
+
+#: weather-in-any-city-widget.php:647 includes/WIYCW-admin.php:155
+msgid "1 day"
+msgstr "1 nap"
+
+#: weather-in-any-city-widget.php:651 includes/WIYCW-admin.php:156
+msgid "2 days"
+msgstr "2 nap"
+
+#: weather-in-any-city-widget.php:655 includes/WIYCW-admin.php:157
+msgid "3 days"
+msgstr "3 nap"
+
+#: weather-in-any-city-widget.php:659 includes/WIYCW-admin.php:158
+msgid "4 days"
+msgstr "4 nap"
+
+#: weather-in-any-city-widget.php:663 includes/WIYCW-admin.php:159
+msgid "5 days"
+msgstr "5 nap"
+
+#: weather-in-any-city-widget.php:667 includes/WIYCW-admin.php:160
+msgid "6 days"
+msgstr "6 nap"
+
+#: weather-in-any-city-widget.php:671 includes/WIYCW-admin.php:161
+msgid "7 days"
+msgstr "7 nap"
+
+#: weather-in-any-city-widget.php:675 includes/WIYCW-admin.php:162
+msgid "8 days"
+msgstr "8 nap"
+
+#: weather-in-any-city-widget.php:679 includes/WIYCW-admin.php:163
+msgid "9 days"
+msgstr "9 nap"
+
+#: weather-in-any-city-widget.php:683 includes/WIYCW-admin.php:164
+msgid "10 days"
+msgstr "10 nap"
+
+#: weather-in-any-city-widget.php:687 includes/WIYCW-admin.php:165
+msgid "11 days"
+msgstr "11 nap"
+
+#: weather-in-any-city-widget.php:691 includes/WIYCW-admin.php:166
+msgid "12 days"
+msgstr "12 nap"
+
+#: weather-in-any-city-widget.php:695 includes/WIYCW-admin.php:167
+msgid "13 days"
+msgstr "13 nap"
+
+#: weather-in-any-city-widget.php:699 weather-in-any-city-widget.php:703
+#: includes/WIYCW-admin.php:168
+msgid "14 days"
+msgstr "14 nap"
+
+#: weather-in-any-city-widget.php:772 includes/WIYCW-admin.php:216
+#: includes/WIYCW-block.php:59
+msgid "Look and feel"
+msgstr "Megjelenés"
+
+#: weather-in-any-city-widget.php:775 includes/WIYCW-admin.php:217
+#: includes/WIYCW-block.php:51
+msgid "Font size"
+msgstr "Betűméret"
+
+#: weather-in-any-city-widget.php:783 includes/WIYCW-admin.php:221
+#: includes/WIYCW-block.php:80
+msgid "Weather icons color"
+msgstr "Időjárás-ikonok színe"
+
+#: weather-in-any-city-widget.php:788 includes/WIYCW-admin.php:222
+#: includes/WIYCW-block.php:42
+msgctxt "icon color"
+msgid "Color"
+msgstr "Színes"
+
+#: weather-in-any-city-widget.php:792 weather-in-any-city-widget.php:810
+#: includes/WIYCW-admin.php:222 includes/WIYCW-admin.php:224
+#: includes/WIYCW-block.php:44
+msgctxt "icon color"
+msgid "Light"
+msgstr "Világos"
+
+#: weather-in-any-city-widget.php:805 includes/WIYCW-admin.php:223
+#: includes/WIYCW-block.php:75
+msgid "UI icons color"
+msgstr "Kezelőfelület-ikonok színe"
+
+#: weather-in-any-city-widget.php:822 includes/WIYCW-admin.php:218
+#: includes/WIYCW-block.php:50
+msgid "Font color"
+msgstr "Betűszín"
+
+#: weather-in-any-city-widget.php:830 includes/WIYCW-admin.php:219
+#: includes/WIYCW-block.php:34
+msgid "Background color"
+msgstr "Háttérszín"
+
+#: weather-in-any-city-widget.php:838 includes/WIYCW-admin.php:220
+#: includes/WIYCW-block.php:35
+msgid "Border color"
+msgstr "Szegélyszín"
+
+#: weather-in-any-city-widget.php:853 includes/WIYCW-admin.php:225
+#: includes/WIYCW-block.php:65
+msgid "Shadow"
+msgstr "Árnyék"
+
+#. translators: %s: eltiempoen.com or weatherin.org
+#: weather-in-any-city-widget.php:924
+#, php-format
+msgid "Show the logo of %s"
+msgstr "%s-logó megjelenítése"
+
+#: includes/WIYCW-admin.php:27 includes/WIYCW-admin.php:50
+msgid "How to use"
+msgstr "Használat"
+
+#: includes/WIYCW-admin.php:49
+msgid "add the weather with the block, the widget or a shortcode."
+msgstr "add hozzá az időjárást blokkal, widgettel vagy rövidkóddal."
+
+#. translators: %d: how big the preview is drawn, in percent
+#: includes/WIYCW-admin.php:68
+#, php-format
+msgid "Shown at %d%% of its size so that it fits here: on your site it will look bigger."
+msgstr "%d%%-os méretben látható, hogy elférjen itt: a webhelyeden nagyobb lesz."
+
+#: includes/WIYCW-admin.php:83
+msgid "Weather for more than 200,000 places, without an API key. There are three ways to add it:"
+msgstr "Időjárás több mint 200 000 helyre, API-kulcs nélkül. Háromféleképpen adhatod hozzá:"
+
+#: includes/WIYCW-admin.php:86
+msgid "Block"
+msgstr "Blokk"
+
+#: includes/WIYCW-admin.php:87
+msgid "In the editor, add the “Weather Widget Pro” block, search for your city and choose what to show in the block sidebar."
+msgstr "A szerkesztőben add hozzá a „Weather Widget Pro” blokkot, keresd meg a városodat, és a blokk oldalsávjában válaszd ki, mi jelenjen meg."
+
+#: includes/WIYCW-admin.php:91
+msgid "Widget"
+msgstr "Widget"
+
+#: includes/WIYCW-admin.php:92
+msgid "Go to Appearance > Widgets (or the Customizer) and add “Weather Widget Pro” to a sidebar. If your theme has no widget areas, use the block or the shortcode."
+msgstr "Lépj a Megjelenés > Widgetek menüpontra (vagy a Testreszabásba), és add hozzá a „Weather Widget Pro” widgetet egy oldalsávhoz. Ha a sablonodnak nincsenek widgetterületei, használd a blokkot vagy a rövidkódot."
+
+#: includes/WIYCW-admin.php:94
+msgid "Go to Widgets"
+msgstr "Ugrás a widgetekhez"
+
+#: includes/WIYCW-admin.php:99 includes/WIYCW-admin.php:114
+msgid "Shortcode"
+msgstr "Rövidkód"
+
+#: includes/WIYCW-admin.php:100
+msgid "Search for a city, choose a design, then copy the shortcode and paste it into any page, post or text widget."
+msgstr "Keress egy várost, válassz kialakítást, majd másold ki a rövidkódot, és illeszd be bármely oldalba, bejegyzésbe vagy szöveges widgetbe."
+
+#: includes/WIYCW-admin.php:111
+msgid "Preview"
+msgstr "Előnézet"
+
+#: includes/WIYCW-admin.php:116
+msgid "Copy"
+msgstr "Másolás"
+
+#: includes/WIYCW-admin.php:117
+msgid "Copied"
+msgstr "Másolva"
+
+#: includes/WIYCW-block.php:64
+msgid "Search for a city to show its weather."
+msgstr "Keress egy várost, hogy megjelenjen az időjárása."

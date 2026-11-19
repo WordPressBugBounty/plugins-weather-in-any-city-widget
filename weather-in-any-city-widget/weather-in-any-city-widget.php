@@ -3,7 +3,7 @@
  * Plugin Name: Weather Widget Pro
  * Plugin URI: https://weatherin.org
  * Description: Weather Widget Pro provides a complete weather forecast for any location around the world.
- * Version: 2.1.0
+ * Version: 2.1.1
  * Requires at least: 5.3
  * Requires PHP: 5.6
  * Author: El tiempo
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) or die( 'ABSPATH not defined' );
 
-define ('WIYCW_VERSION', '2.1.0');
+define ('WIYCW_VERSION', '2.1.1');
 define ('WIYCW_API', 'https://eltiempoen.com/api/weather');
 define ('WIYCW_DEF_PLUGIN', 'weather-in-any-city-widget');
 define ('WIYCW_DEF_BASEURL', plugins_url('', __FILE__));
@@ -37,18 +37,35 @@ function WIYCW_textdomain() {
     load_plugin_textdomain('weather-in-any-city-widget', FALSE, plugin_basename(dirname(__FILE__)) . '/languages' );
 }
 
-add_filter('load_textdomain_mofile', 'WIYCW_spanish_file', 10, 2);
-function WIYCW_spanish_file($mofile, $domain){
+function WIYCW_locale_file($locale){
+	$special = array('es_ES' => 'es_ES', 'pt_PT' => 'pt_PT', 'pt_AO' => 'pt_PT', 'zh_TW' => 'zh_TW', 'zh_HK' => 'zh_TW', 'zh_MO' => 'zh_TW');
+	$main = array('es' => 'es', 'fr' => 'fr_FR', 'de' => 'de_DE', 'it' => 'it_IT', 'pt' => 'pt_BR', 'ja' => 'ja', 'zh' => 'zh_CN',
+		'ru' => 'ru_RU', 'nl' => 'nl_NL', 'pl' => 'pl_PL', 'tr' => 'tr_TR', 'ar' => 'ar', 'ary' => 'ar', 'ko' => 'ko_KR',
+		'id' => 'id_ID', 'hi' => 'hi_IN', 'vi' => 'vi', 'uk' => 'uk', 'sv' => 'sv_SE', 'cs' => 'cs_CZ', 'ro' => 'ro_RO',
+		'el' => 'el', 'hu' => 'hu_HU', 'fa' => 'fa_IR', 'he' => 'he_IL', 'th' => 'th', 'da' => 'da_DK', 'fi' => 'fi',
+		'nb' => 'nb_NO', 'nn' => 'nb_NO', 'sk' => 'sk_SK', 'bg' => 'bg_BG', 'hr' => 'hr', 'sr' => 'sr_RS', 'ca' => 'ca',
+		'ms' => 'ms_MY', 'bn' => 'bn_BD');
+	$region = implode('_', array_slice(explode('_', (string) $locale), 0, 2));
+	if(isset($special[$region])){
+		return $special[$region];
+	}
+	$language = strtolower(strtok((string) $locale, '_'));
+	return isset($main[$language]) ? $main[$language] : '';
+}
+
+add_filter('load_textdomain_mofile', 'WIYCW_language_file', 10, 2);
+function WIYCW_language_file($mofile, $domain){
 	if($domain !== 'weather-in-any-city-widget' || file_exists($mofile)){
 		return $mofile;
 	}
 	$dir = wp_normalize_path(dirname(__FILE__) . '/languages/');
 	$path = wp_normalize_path($mofile);
-	if(strpos($path, $dir) !== 0 || !preg_match('~-es_([A-Z]{2})\.mo$~', $path, $match)){
+	if(strpos($path, $dir) !== 0 || !preg_match('~weather-in-any-city-widget-([A-Za-z_]+)\.mo$~', $path, $match)){
 		return $mofile;
 	}
-	$file = $dir . 'weather-in-any-city-widget-' . ($match[1] === 'ES' ? 'es_ES' : 'es') . '.mo';
-	return file_exists($file) ? $file : $mofile;
+	$main = WIYCW_locale_file($match[1]);
+	$file = $dir . 'weather-in-any-city-widget-' . $main . '.mo';
+	return $main !== '' && file_exists($file) ? $file : $mofile;
 }
 
 function WIYCW_default_values($instance){
@@ -103,7 +120,7 @@ function WIYCW_default_values($instance){
 function WIYCW_themes(){
 	return array(
 		'sky' => __('Sky', 'weather-in-any-city-widget'),
-		'dark' => __('Dark', 'weather-in-any-city-widget'),
+		'dark' => _x('Dark', 'card style', 'weather-in-any-city-widget'),
 		'full' => __('Full sky', 'weather-in-any-city-widget'),
 		'flat' => __('Flat', 'weather-in-any-city-widget'),
 		'blend' => __('Transparent', 'weather-in-any-city-widget')
@@ -757,15 +774,15 @@ class WIYCW_widget extends WP_Widget
 						<select class="widefat" name="<?php echo $this->get_field_name('weatherIconsColor'); ?>" id="<?php echo $this->get_field_id('weatherIconsColor'); ?>">
 							 <option value="color" <?php if ($weatherIconsColor == "color") {
 	                            echo 'selected';
-	                        } ?>><?php echo __('Color', 'weather-in-any-city-widget')?>
+	                        } ?>><?php echo _x('Color', 'icon color', 'weather-in-any-city-widget')?>
 	                        </option>
 	                        <option value="light" <?php if ($weatherIconsColor == "light") {
 	                            echo 'selected';
-	                        } ?>><?php echo __('Light', 'weather-in-any-city-widget')?>
+	                        } ?>><?php echo _x('Light', 'icon color', 'weather-in-any-city-widget')?>
 	                        </option>
 	                        <option value="dark" <?php if ($weatherIconsColor == "dark") {
 	                            echo 'selected';
-	                        } ?>><?php echo __('Dark', 'weather-in-any-city-widget')?>
+	                        } ?>><?php echo _x('Dark', 'icon color', 'weather-in-any-city-widget')?>
 	                        </option>
 		                </select>
 					</p>
@@ -779,11 +796,11 @@ class WIYCW_widget extends WP_Widget
 						<select class="widefat" name="<?php echo $this->get_field_name('iconsColor'); ?>" id="<?php echo $this->get_field_id('iconsColor'); ?>">
 	                        <option value="light" <?php if ($iconsColor == "light") {
 	                            echo 'selected';
-	                        } ?>><?php echo __('Light', 'weather-in-any-city-widget')?>
+	                        } ?>><?php echo _x('Light', 'icon color', 'weather-in-any-city-widget')?>
 	                        </option>
 	                        <option value="dark" <?php if ($iconsColor == "dark") {
 	                            echo 'selected';
-	                        } ?>><?php echo __('Dark', 'weather-in-any-city-widget')?>
+	                        } ?>><?php echo _x('Dark', 'icon color', 'weather-in-any-city-widget')?>
 	                        </option>
 		                </select>
 					</p>
