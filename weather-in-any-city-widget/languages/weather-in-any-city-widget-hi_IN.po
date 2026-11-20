@@ -426,8 +426,8 @@ msgstr "अंतिम अपडेट का समय"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "एनिमेटेड आकाश"
+msgid "Sky colors and animation"
+msgstr "आकाश के रंग और एनिमेशन"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

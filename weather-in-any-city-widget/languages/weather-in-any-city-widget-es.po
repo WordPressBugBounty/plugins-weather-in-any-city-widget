@@ -438,8 +438,8 @@ msgstr "Hora de la última actualización"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "Cielo animado"
+msgid "Sky colors and animation"
+msgstr "Colores y animación del cielo"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

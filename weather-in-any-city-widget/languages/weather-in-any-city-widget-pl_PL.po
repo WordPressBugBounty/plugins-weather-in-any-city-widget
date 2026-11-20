@@ -411,8 +411,8 @@ msgstr "Godzina ostatniej aktualizacji"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "Animowane niebo"
+msgid "Sky colors and animation"
+msgstr "Kolory i animacja nieba"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

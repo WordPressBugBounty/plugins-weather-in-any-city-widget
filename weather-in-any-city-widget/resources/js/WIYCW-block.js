@@ -207,7 +207,7 @@
 			}),
 			card ? toggle(props, 'unit_switch', __('Let visitors switch between °C and °F', 'weather-in-any-city-widget')) : null,
 			card ? toggle(props, 'updated', __('Time of the last update', 'weather-in-any-city-widget')) : null,
-			card ? toggle(props, 'animation', __('Animated sky', 'weather-in-any-city-widget')) : null,
+			card ? toggle(props, 'animation', __('Sky colors and animation', 'weather-in-any-city-widget')) : null,
 			card ? null : el(components.BaseControl, {label: __('Font color', 'weather-in-any-city-widget'), id: 'wiycw-text'},
 				el(components.ColorPalette, {value: a.textColor, clearable: false, onChange: function (value) { props.setAttributes({textColor: value || '#000000'}); }})),
 			card ? null : el(components.BaseControl, {label: __('Background color', 'weather-in-any-city-widget'), id: 'wiycw-bg'},

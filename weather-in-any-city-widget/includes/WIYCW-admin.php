@@ -172,7 +172,7 @@ function WIYCW_generator_fields(){
 			$check('hourly', __('Hourly forecast', 'weather-in-any-city-widget'), 'on', 'card'),
 			$check('unit_switch', __('Let visitors switch between °C and °F', 'weather-in-any-city-widget'), 'on', 'card'),
 			$check('updated', __('Time of the last update', 'weather-in-any-city-widget'), 'off', 'card'),
-			$check('animation', __('Animated sky', 'weather-in-any-city-widget'), 'on', 'card'),
+			$check('animation', __('Sky colors and animation', 'weather-in-any-city-widget'), 'on', 'card'),
 		),
 		__('Current conditions', 'weather-in-any-city-widget') => array(
 			$check('today', __('Show current conditions', 'weather-in-any-city-widget'), 'on'),

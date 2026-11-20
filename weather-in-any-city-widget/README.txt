@@ -4,7 +4,7 @@ Tags: weather, weather widget, weather forecast, tiempo, clima
 Requires at least: 5.3
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,11 @@ Privacy policy: https://weatherin.org/privacy-policy (English) and https://eltie
 
 == Changelog ==
 
+= 2.1.2 =
+* New: in the sky card, unchecking "Sky colors and animation" (before, "Animated sky") also removes the weather colors of the current conditions, which then take the background and text colors of the rest of the card, for sites that want uniform colors. The Full sky style keeps its colors and only stops the animation.
+* Fixed: the keyboard focus ring of the °C / °F switch was white on white in the Sky style when the current conditions were hidden.
+* Fixed: in narrow cards, the wind of the current conditions could split a gust from its unit ("(34" / "km/h)"); now the gust moves whole to the next line.
+
 = 2.1.1 =
 * New: the plugin is translated into 34 more languages, among them French, German, Italian, Portuguese (Brazil and Portugal), Japanese, Chinese (Simplified and Traditional), Russian, Arabic, Turkish and Hindi.
 * Regional variants use their main language (for example French of Canada uses French, Swiss German uses German).
@@ -209,6 +214,9 @@ Privacy policy: https://weatherin.org/privacy-policy (English) and https://eltie
 * Improved: the connection to the service is verified (SSL), and a failed request is not repeated for a minute.
 
 == Upgrade Notice ==
+
+= 2.1.2 =
+The sky card can now show uniform colors: uncheck "Sky colors and animation".
 
 = 2.1.1 =
 Translations into 34 more languages.

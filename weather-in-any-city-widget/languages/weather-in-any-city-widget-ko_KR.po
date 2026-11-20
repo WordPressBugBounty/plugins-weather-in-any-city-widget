@@ -426,8 +426,8 @@ msgstr "마지막 업데이트 시간"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "움직이는 하늘"
+msgid "Sky colors and animation"
+msgstr "하늘 색과 움직임"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

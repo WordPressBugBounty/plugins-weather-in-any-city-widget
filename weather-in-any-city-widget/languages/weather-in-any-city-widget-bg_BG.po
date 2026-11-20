@@ -411,8 +411,8 @@ msgstr "Час на последното обновяване"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "Анимирано небе"
+msgid "Sky colors and animation"
+msgstr "Цветове и анимация на небето"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

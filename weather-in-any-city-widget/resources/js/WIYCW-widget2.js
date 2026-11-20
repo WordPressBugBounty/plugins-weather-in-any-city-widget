@@ -496,7 +496,7 @@
 		if (logo) {
 			logoTo(logo, state.logo === 'light');
 		}
-		var icons = widget.querySelectorAll('.WIYCW-hour-icon, .WIYCW-day-icon');
+		var icons = widget.querySelectorAll('.WIYCW-hour-icon, .WIYCW-day-icon, .WIYCW-card-plain .WIYCW-card-icon');
 		for (var i = 0; i < icons.length; i++) {
 			var src = icons[i].getAttribute('src');
 			if (src) {
@@ -1041,7 +1041,24 @@
 		item.appendChild(icon);
 		var text = el('div', 'WIYCW-fact-text');
 		text.appendChild(el('span', 'WIYCW-fact-label', label));
-		text.appendChild(withNum(el('span', 'WIYCW-fact-value'), '', value));
+		if (Array.isArray(value)) {
+			var node = el('span', 'WIYCW-fact-value');
+			var holder = node;
+			if (apart) {
+				holder = el('span', 'WIYCW-num');
+				holder.dir = 'ltr';
+				node.appendChild(holder);
+			}
+			value.forEach(function (part, index) {
+				if (index) {
+					holder.appendChild(document.createTextNode(' '));
+				}
+				holder.appendChild(el('span', 'WIYCW-fact-part', part));
+			});
+			text.appendChild(node);
+		} else {
+			text.appendChild(withNum(el('span', 'WIYCW-fact-value'), '', value));
+		}
 		item.appendChild(text);
 		return item;
 	}
@@ -1157,9 +1174,12 @@
 		var withNow = set.today !== 'off';
 		content.classList.toggle('WIYCW-no-sky', !withNow);
 		var look = sceneOf(now);
-		var sky = withNow
-			? el('section', 'WIYCW-skycard' + (look.scene ? ' WIYCW-sky-' + look.scene : '') + (look.light !== 'day' ? ' WIYCW-is-' + look.light : ''))
-			: el('div', 'WIYCW-card-plain');
+		var plain = set.animation === 'off' && theme !== 'full';
+		var sky = !withNow
+			? el('div', 'WIYCW-card-plain')
+			: plain
+				? el('section', 'WIYCW-skycard WIYCW-card-plain')
+				: el('section', 'WIYCW-skycard' + (look.scene ? ' WIYCW-sky-' + look.scene : '') + (look.light !== 'day' ? ' WIYCW-is-' + look.light : ''));
 		if (withNow && set.animation !== 'off') {
 			var fx = el('i', 'WIYCW-skyfx');
 			fx.setAttribute('aria-hidden', 'true');
@@ -1203,7 +1223,7 @@
 		if (set.today !== 'off') {
 			var main = el('div', 'WIYCW-card-main');
 			if (set.nowicon !== 'off' && knownIcon(now)) {
-				main.appendChild(modernImage(icons + 'sky/', now, text, 84, 'WIYCW-card-icon'));
+				main.appendChild(modernImage(plain ? ground : icons + 'sky/', now, text, 84, 'WIYCW-card-icon'));
 			}
 			if (set.nowtemp !== 'off') {
 				main.appendChild(withNum(el('div', 'WIYCW-card-temp'), '', temp(now.temp, units)));
@@ -1236,8 +1256,9 @@
 				facts.appendChild(fact(widget, 'dew-point.svg', t('humidity', 'Humidity'), now.humidity + '%'));
 			}
 			if (set.nowwind === 'on' && isNumber(now.wind_speed)) {
-				var gust = isNumber(now.gust) && now.gust >= now.wind_speed + 10 ? ' (' + speed(now.gust, units) + ')' : '';
-				facts.appendChild(fact(widget, isNumber(now.wind_deg) ? 'arrow.svg' : 'wind.svg', t('wind', 'Wind'), speed(now.wind_speed, units) + gust, now.wind_deg));
+				var gusty = isNumber(now.gust) && now.gust >= now.wind_speed + 10;
+				var windValue = gusty ? [speed(now.wind_speed, units), '(' + speed(now.gust, units) + ')'] : speed(now.wind_speed, units);
+				facts.appendChild(fact(widget, isNumber(now.wind_deg) ? 'arrow.svg' : 'wind.svg', t('wind', 'Wind'), windValue, now.wind_deg));
 			}
 			if (set.nowpressure === 'on' && isNumber(now.pressure)) {
 				facts.appendChild(fact(widget, 'pressure.svg', t('pressure', 'Pressure'), now.pressure + ' hPa'));

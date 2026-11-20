@@ -426,8 +426,8 @@ msgstr "最終更新時刻"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "空のアニメーション"
+msgid "Sky colors and animation"
+msgstr "空の色とアニメーション"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

@@ -426,8 +426,8 @@ msgstr "Thời gian cập nhật gần nhất"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "Bầu trời động"
+msgid "Sky colors and animation"
+msgstr "Màu và chuyển động của bầu trời"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

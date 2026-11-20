@@ -24,7 +24,7 @@ function WIYCW_block_words(){
 	return array(
 		'12 hours' => __('12 hours', 'weather-in-any-city-widget'),
 		'24 hours' => __('24 hours', 'weather-in-any-city-widget'),
-		'Animated sky' => __('Animated sky', 'weather-in-any-city-widget'),
+		'Sky colors and animation' => __('Sky colors and animation', 'weather-in-any-city-widget'),
 		'Background color' => __('Background color', 'weather-in-any-city-widget'),
 		'Border color' => __('Border color', 'weather-in-any-city-widget'),
 		'Celsius' => __('Celsius', 'weather-in-any-city-widget'),

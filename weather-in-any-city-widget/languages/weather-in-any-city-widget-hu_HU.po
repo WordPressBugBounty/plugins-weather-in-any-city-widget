@@ -411,8 +411,8 @@ msgstr "Az utolsó frissítés ideje"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "Animált égbolt"
+msgid "Sky colors and animation"
+msgstr "Égbolt színei és animációja"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67

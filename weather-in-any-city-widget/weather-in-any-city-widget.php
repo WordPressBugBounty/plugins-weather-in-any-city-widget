@@ -3,7 +3,7 @@
  * Plugin Name: Weather Widget Pro
  * Plugin URI: https://weatherin.org
  * Description: Weather Widget Pro provides a complete weather forecast for any location around the world.
- * Version: 2.1.1
+ * Version: 2.1.2
  * Requires at least: 5.3
  * Requires PHP: 5.6
  * Author: El tiempo
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) or die( 'ABSPATH not defined' );
 
-define ('WIYCW_VERSION', '2.1.1');
+define ('WIYCW_VERSION', '2.1.2');
 define ('WIYCW_API', 'https://eltiempoen.com/api/weather');
 define ('WIYCW_DEF_PLUGIN', 'weather-in-any-city-widget');
 define ('WIYCW_DEF_BASEURL', plugins_url('', __FILE__));
@@ -498,7 +498,7 @@ class WIYCW_widget extends WP_Widget
 						<input class="checkbox" type="checkbox" <?php checked($instance['animation'], 'on'); ?>
 							id="<?php echo esc_attr($this->get_field_id('animation')); ?>"
 							name="<?php echo esc_attr($this->get_field_name('animation')); ?>" />
-						<label for="<?php echo esc_attr($this->get_field_id('animation')); ?>"><?php echo esc_html__('Animated sky', 'weather-in-any-city-widget'); ?></label>
+						<label for="<?php echo esc_attr($this->get_field_id('animation')); ?>"><?php echo esc_html__('Sky colors and animation', 'weather-in-any-city-widget'); ?></label>
 					</p>
 				</div>
 

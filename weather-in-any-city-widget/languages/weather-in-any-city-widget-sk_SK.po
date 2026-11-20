@@ -411,8 +411,8 @@ msgstr "Čas poslednej aktualizácie"
 
 #: weather-in-any-city-widget.php:511 includes/WIYCW-admin.php:193
 #: includes/WIYCW-block.php:33
-msgid "Animated sky"
-msgstr "Animovaná obloha"
+msgid "Sky colors and animation"
+msgstr "Farby a animácia oblohy"
 
 #: weather-in-any-city-widget.php:527 includes/WIYCW-admin.php:196
 #: includes/WIYCW-block.php:67
